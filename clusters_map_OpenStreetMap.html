@@ -1,0 +1,3707 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3d1decc67762de1ea2c7ae3ddbe1f7b1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed;
+    bottom: 50px; left: 50px; width: 160px; height: 140px;
+    background-color: transparent; border:2px solid grey; z-index:9999; font-size:14px;
+    padding: 10px;
+    ">
+    <b>Cluster Legend</b><br>
+    <i style="background:red; width:10px; height:10px; display:inline-block;"></i> Poor Amenity<br>
+    <i style="background:blue; width:10px; height:10px; display:inline-block;"></i> Rich Amenity<br>
+    <i style="background:green; width:10px; height:10px; display:inline-block;"></i> Moderate Amenity<br>
+    <i style="background:purple; width:10px; height:10px; display:inline-block;"></i> Balanced Residential<br>
+</div>
+    
+            <div class="folium-map" id="map_3d1decc67762de1ea2c7ae3ddbe1f7b1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3d1decc67762de1ea2c7ae3ddbe1f7b1 = L.map(
+                "map_3d1decc67762de1ea2c7ae3ddbe1f7b1",
+                {
+                    center: [12.964891133129289, 77.63868204836778],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5ad42bdf10704bb1a534518b939853fe = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5ad42bdf10704bb1a534518b939853fe.addTo(map_3d1decc67762de1ea2c7ae3ddbe1f7b1);
+        
+    
+            var tile_layer_099e831fbf86b7149ebf3674c43d8049 = L.tileLayer(
+                "Stamen Terrain",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_099e831fbf86b7149ebf3674c43d8049.addTo(map_3d1decc67762de1ea2c7ae3ddbe1f7b1);
+        
+    
+            var tile_layer_4190d5f6a9bf00063f03c875dccac761 = L.tileLayer(
+                "Stamen Toner",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4190d5f6a9bf00063f03c875dccac761.addTo(map_3d1decc67762de1ea2c7ae3ddbe1f7b1);
+        
+    
+            var tile_layer_592f7d266b89269967645540fb5ebdf5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_592f7d266b89269967645540fb5ebdf5.addTo(map_3d1decc67762de1ea2c7ae3ddbe1f7b1);
+        
+    
+            var marker_cluster_f47a49381cd6490a1e063d693b94acec = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_986fc3d30d860fe6f9db18179c6436c5 = L.circleMarker(
+                [13.032046422453332, 77.60950561346421],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_f91767ae820c4b65b18981e9043ed4d4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1046db68160fd80f0e4cbf95a056b6d7 = $(`<div id="html_1046db68160fd80f0e4cbf95a056b6d7" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Sulthanpalya<br>     <b>Name:</b> Shanthi Nikethan<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 13.0<br>     <b>Restaurant:</b> 5.0<br>     <b>School:</b> 12<br>     <b>Cafe:</b> 3.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 4.0     </div>`)[0];
+                popup_f91767ae820c4b65b18981e9043ed4d4.setContent(html_1046db68160fd80f0e4cbf95a056b6d7);
+            
+        
+
+        circle_marker_986fc3d30d860fe6f9db18179c6436c5.bindPopup(popup_f91767ae820c4b65b18981e9043ed4d4)
+        ;
+
+        
+    
+    
+            circle_marker_986fc3d30d860fe6f9db18179c6436c5.bindTooltip(
+                `<div>
+                     Sulthanpalya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fe7336de7b16571e4fd3a875057d78d2 = L.circleMarker(
+                [12.927120623003566, 77.68645249623852],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_fbf53b3a90f697b09b1db5647cee7edd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a43bbce97f51ab3ff385faca8cdc0436 = $(`<div id="html_a43bbce97f51ab3ff385faca8cdc0436" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Bellanduru<br>     <b>Name:</b> Vijayasri Golden Orchid<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 3.0<br>     <b>Restaurant:</b> 46.0<br>     <b>School:</b> 1<br>     <b>Cafe:</b> 13.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 4.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_fbf53b3a90f697b09b1db5647cee7edd.setContent(html_a43bbce97f51ab3ff385faca8cdc0436);
+            
+        
+
+        circle_marker_fe7336de7b16571e4fd3a875057d78d2.bindPopup(popup_fbf53b3a90f697b09b1db5647cee7edd)
+        ;
+
+        
+    
+    
+            circle_marker_fe7336de7b16571e4fd3a875057d78d2.bindTooltip(
+                `<div>
+                     Bellanduru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_104b853df7149862e66f281de044f017 = L.circleMarker(
+                [12.90190651053383, 77.59030258944412],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_efebc08f7aa48816db8221cbb6707c7e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9c7d9fa349c632469674d13994fcf652 = $(`<div id="html_9c7d9fa349c632469674d13994fcf652" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> JP Nagar<br>     <b>Name:</b> Mahaveer Springs<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 15.0<br>     <b>Restaurant:</b> 68.0<br>     <b>School:</b> 18<br>     <b>Cafe:</b> 21.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 21.0<br>     <b>Fitness Centre:</b> 10.0<br>     <b>Sports Centre:</b> 7.0     </div>`)[0];
+                popup_efebc08f7aa48816db8221cbb6707c7e.setContent(html_9c7d9fa349c632469674d13994fcf652);
+            
+        
+
+        circle_marker_104b853df7149862e66f281de044f017.bindPopup(popup_efebc08f7aa48816db8221cbb6707c7e)
+        ;
+
+        
+    
+    
+            circle_marker_104b853df7149862e66f281de044f017.bindTooltip(
+                `<div>
+                     JP Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5d9899a6ed8f736a7759b343a674677 = L.circleMarker(
+                [12.917767124093922, 77.6892306572715],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_d30a6d1faa08731077179a311994e742 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb215d76f322ef36dcb06ced21f02cf9 = $(`<div id="html_cb215d76f322ef36dcb06ced21f02cf9" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Doddakannalli<br>     <b>Name:</b> Jasmine Tower-5 Block V<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 1.0<br>     <b>Restaurant:</b> 45.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 15.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 4.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_d30a6d1faa08731077179a311994e742.setContent(html_cb215d76f322ef36dcb06ced21f02cf9);
+            
+        
+
+        circle_marker_a5d9899a6ed8f736a7759b343a674677.bindPopup(popup_d30a6d1faa08731077179a311994e742)
+        ;
+
+        
+    
+    
+            circle_marker_a5d9899a6ed8f736a7759b343a674677.bindTooltip(
+                `<div>
+                     Doddakannalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dace9af95b94d92cc4c14aaa6918951f = L.circleMarker(
+                [12.925522324761646, 77.66946383649613],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_21b51ed2a4a8cb3afba658d5a91a666f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f1f6a55e8b3df5c7cd32eacade0a918 = $(`<div id="html_5f1f6a55e8b3df5c7cd32eacade0a918" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Green Glen Layout<br>     <b>Name:</b> Dsr Regency<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 8.0<br>     <b>Restaurant:</b> 46.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 11.0<br>     <b>Bank:</b> 19.0<br>     <b>Fitness Centre:</b> 8.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_21b51ed2a4a8cb3afba658d5a91a666f.setContent(html_5f1f6a55e8b3df5c7cd32eacade0a918);
+            
+        
+
+        circle_marker_dace9af95b94d92cc4c14aaa6918951f.bindPopup(popup_21b51ed2a4a8cb3afba658d5a91a666f)
+        ;
+
+        
+    
+    
+            circle_marker_dace9af95b94d92cc4c14aaa6918951f.bindTooltip(
+                `<div>
+                     Green Glen Layout
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d11f27341438bb5c3c50eb59c81b42e = L.circleMarker(
+                [12.978223824937599, 77.68407313938918],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_30ef03fbdf763ed1caaa02ca40a5128b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_248523ec109ff05b21d253424bee7fa8 = $(`<div id="html_248523ec109ff05b21d253424bee7fa8" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Abbaiah Reddy Layout<br>     <b>Name:</b> Diya Constructions<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 9.0<br>     <b>Restaurant:</b> 20.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 6.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_30ef03fbdf763ed1caaa02ca40a5128b.setContent(html_248523ec109ff05b21d253424bee7fa8);
+            
+        
+
+        circle_marker_5d11f27341438bb5c3c50eb59c81b42e.bindPopup(popup_30ef03fbdf763ed1caaa02ca40a5128b)
+        ;
+
+        
+    
+    
+            circle_marker_5d11f27341438bb5c3c50eb59c81b42e.bindTooltip(
+                `<div>
+                     Abbaiah Reddy Layout
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0942d1511e3f1e9a8df969db6a558a15 = L.circleMarker(
+                [12.933162334296492, 77.50531306898013],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_0a94ff5f88a9384d73c9de42bfbfd205 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3107011e96076b74863f0889097ffec2 = $(`<div id="html_3107011e96076b74863f0889097ffec2" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Rajarajeshwari Nagar<br>     <b>Name:</b> Research Scholars' Hostel<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 3.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_0a94ff5f88a9384d73c9de42bfbfd205.setContent(html_3107011e96076b74863f0889097ffec2);
+            
+        
+
+        circle_marker_0942d1511e3f1e9a8df969db6a558a15.bindPopup(popup_0a94ff5f88a9384d73c9de42bfbfd205)
+        ;
+
+        
+    
+    
+            circle_marker_0942d1511e3f1e9a8df969db6a558a15.bindTooltip(
+                `<div>
+                     Rajarajeshwari Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab312853faf8c64981fcb6d5648ae5e1 = L.circleMarker(
+                [13.0044084139944, 77.62197835809216],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_8dbe5f987a57b160e1e15de084556da6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3fe20d20d31de0001083b4090ae485c = $(`<div id="html_a3fe20d20d31de0001083b4090ae485c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> North Star<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 19.0<br>     <b>Restaurant:</b> 34.0<br>     <b>School:</b> 14<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 9.0<br>     <b>Bank:</b> 21.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_8dbe5f987a57b160e1e15de084556da6.setContent(html_a3fe20d20d31de0001083b4090ae485c);
+            
+        
+
+        circle_marker_ab312853faf8c64981fcb6d5648ae5e1.bindPopup(popup_8dbe5f987a57b160e1e15de084556da6)
+        ;
+
+        
+    
+    
+            circle_marker_ab312853faf8c64981fcb6d5648ae5e1.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d74e65ed8ec2e6bd178e15f19a97647b = L.circleMarker(
+                [13.064071124017401, 77.63876432284955],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_a6ea0d4d6ab86066ce14e13aa499262a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c10673f132e8327a842ee627996b3c1b = $(`<div id="html_c10673f132e8327a842ee627996b3c1b" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Golden Palms Apartments<br>     <b>Name:</b> Block-C<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 8.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 7.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 5.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_a6ea0d4d6ab86066ce14e13aa499262a.setContent(html_c10673f132e8327a842ee627996b3c1b);
+            
+        
+
+        circle_marker_d74e65ed8ec2e6bd178e15f19a97647b.bindPopup(popup_a6ea0d4d6ab86066ce14e13aa499262a)
+        ;
+
+        
+    
+    
+            circle_marker_d74e65ed8ec2e6bd178e15f19a97647b.bindTooltip(
+                `<div>
+                     Golden Palms Apartments
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_639a765950e2baba12fcf83e218e7a73 = L.circleMarker(
+                [12.916847212376307, 77.69774259495281],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_0368899860d8b6d6f980eabec83888a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ca5ff9433337fd09b4c127a83d76345 = $(`<div id="html_4ca5ff9433337fd09b4c127a83d76345" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Doddakannalli<br>     <b>Name:</b> Shakti 80 Trees<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 5.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_0368899860d8b6d6f980eabec83888a7.setContent(html_4ca5ff9433337fd09b4c127a83d76345);
+            
+        
+
+        circle_marker_639a765950e2baba12fcf83e218e7a73.bindPopup(popup_0368899860d8b6d6f980eabec83888a7)
+        ;
+
+        
+    
+    
+            circle_marker_639a765950e2baba12fcf83e218e7a73.bindTooltip(
+                `<div>
+                     Doddakannalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_154253e9554d6179eaa02cd15ffbf8cf = L.circleMarker(
+                [13.00357164365799, 77.62132716807069],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_17517bd75beddefc7c56bd99dfde280f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95ed0def3abc8896e5c04865e36cb6e8 = $(`<div id="html_95ed0def3abc8896e5c04865e36cb6e8" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Pearl House<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 18.0<br>     <b>Restaurant:</b> 36.0<br>     <b>School:</b> 16<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 9.0<br>     <b>Bank:</b> 23.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_17517bd75beddefc7c56bd99dfde280f.setContent(html_95ed0def3abc8896e5c04865e36cb6e8);
+            
+        
+
+        circle_marker_154253e9554d6179eaa02cd15ffbf8cf.bindPopup(popup_17517bd75beddefc7c56bd99dfde280f)
+        ;
+
+        
+    
+    
+            circle_marker_154253e9554d6179eaa02cd15ffbf8cf.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd712830d886d9ea202f6697d3497b7c = L.circleMarker(
+                [12.904281919362385, 77.6855282240395],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_3b1afbd7062af491b143abc1382cf6d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_594f25026e1abd56fb1b448b64fde29a = $(`<div id="html_594f25026e1abd56fb1b448b64fde29a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Doddakannalli<br>     <b>Name:</b> 257<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 3.0<br>     <b>Restaurant:</b> 13.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 9.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 7.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_3b1afbd7062af491b143abc1382cf6d0.setContent(html_594f25026e1abd56fb1b448b64fde29a);
+            
+        
+
+        circle_marker_dd712830d886d9ea202f6697d3497b7c.bindPopup(popup_3b1afbd7062af491b143abc1382cf6d0)
+        ;
+
+        
+    
+    
+            circle_marker_dd712830d886d9ea202f6697d3497b7c.bindTooltip(
+                `<div>
+                     Doddakannalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55acb5f58810941287d836e5e7327b1f = L.circleMarker(
+                [12.957701074586836, 77.72113421466139],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_b59c8fb4aa755a80aad5ba5402d09bfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51505edc987f41338dd712571934c937 = $(`<div id="html_51505edc987f41338dd712571934c937" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> BEML Layout 6th Stage<br>     <b>Name:</b> Bellmount Residency<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 29.0<br>     <b>Restaurant:</b> 73.0<br>     <b>School:</b> 13<br>     <b>Cafe:</b> 34.0<br>     <b>Hospital:</b> 9.0<br>     <b>Bank:</b> 15.0<br>     <b>Fitness Centre:</b> 17.0<br>     <b>Sports Centre:</b> 10.0     </div>`)[0];
+                popup_b59c8fb4aa755a80aad5ba5402d09bfb.setContent(html_51505edc987f41338dd712571934c937);
+            
+        
+
+        circle_marker_55acb5f58810941287d836e5e7327b1f.bindPopup(popup_b59c8fb4aa755a80aad5ba5402d09bfb)
+        ;
+
+        
+    
+    
+            circle_marker_55acb5f58810941287d836e5e7327b1f.bindTooltip(
+                `<div>
+                     BEML Layout 6th Stage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c99b996bb24149da9eaa7c86710561d = L.circleMarker(
+                [13.066282540441971, 77.55496592699814],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_956f4a224d88474b9b07cd96fed64804 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1891a24c565a76218f831ff562e3cacc = $(`<div id="html_1891a24c565a76218f831ff562e3cacc" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Vidyaranyapura<br>     <b>Name:</b> Ashirwad<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 2.0<br>     <b>School:</b> 10<br>     <b>Cafe:</b> 5.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 7.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_956f4a224d88474b9b07cd96fed64804.setContent(html_1891a24c565a76218f831ff562e3cacc);
+            
+        
+
+        circle_marker_3c99b996bb24149da9eaa7c86710561d.bindPopup(popup_956f4a224d88474b9b07cd96fed64804)
+        ;
+
+        
+    
+    
+            circle_marker_3c99b996bb24149da9eaa7c86710561d.bindTooltip(
+                `<div>
+                     Vidyaranyapura
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_33b5043405e7b93733f10e3211ebcc1c = L.circleMarker(
+                [12.94376563654257, 77.687892154],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_f7d228fe0299aff1b96396c951caf2a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d29d84584416c6658a6fbede9f5dfe9 = $(`<div id="html_6d29d84584416c6658a6fbede9f5dfe9" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Marathahalli<br>     <b>Name:</b> I5<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 25.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 5.0<br>     <b>Hospital:</b> 0.0<br>     <b>Bank:</b> 4.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_f7d228fe0299aff1b96396c951caf2a9.setContent(html_6d29d84584416c6658a6fbede9f5dfe9);
+            
+        
+
+        circle_marker_33b5043405e7b93733f10e3211ebcc1c.bindPopup(popup_f7d228fe0299aff1b96396c951caf2a9)
+        ;
+
+        
+    
+    
+            circle_marker_33b5043405e7b93733f10e3211ebcc1c.bindTooltip(
+                `<div>
+                     Marathahalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_533f0a87152ed93a088638ef9082b657 = L.circleMarker(
+                [12.957524566278055, 77.57516372890028],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_088978418c50fcdc76352771b9a384be = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbaa1199fb7f8623dff879425a8d5387 = $(`<div id="html_bbaa1199fb7f8623dff879425a8d5387" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Chamarajapete<br>     <b>Name:</b> Bmc Driver'S Quarters<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 21.0<br>     <b>School:</b> 20<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 25.0<br>     <b>Bank:</b> 31.0<br>     <b>Fitness Centre:</b> 5.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_088978418c50fcdc76352771b9a384be.setContent(html_bbaa1199fb7f8623dff879425a8d5387);
+            
+        
+
+        circle_marker_533f0a87152ed93a088638ef9082b657.bindPopup(popup_088978418c50fcdc76352771b9a384be)
+        ;
+
+        
+    
+    
+            circle_marker_533f0a87152ed93a088638ef9082b657.bindTooltip(
+                `<div>
+                     Chamarajapete
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ea14f6dd86ddc97f3afbf6c1053f65d0 = L.circleMarker(
+                [12.931581850856604, 77.69602255088846],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_28033261059b3fe5a51fc5a12b07902f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1dc237c0f48c07201cfb79826adbb319 = $(`<div id="html_1dc237c0f48c07201cfb79826adbb319" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Panathur<br>     <b>Name:</b> Oak 1<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 3.0<br>     <b>Restaurant:</b> 27.0<br>     <b>School:</b> 8<br>     <b>Cafe:</b> 6.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 3.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_28033261059b3fe5a51fc5a12b07902f.setContent(html_1dc237c0f48c07201cfb79826adbb319);
+            
+        
+
+        circle_marker_ea14f6dd86ddc97f3afbf6c1053f65d0.bindPopup(popup_28033261059b3fe5a51fc5a12b07902f)
+        ;
+
+        
+    
+    
+            circle_marker_ea14f6dd86ddc97f3afbf6c1053f65d0.bindTooltip(
+                `<div>
+                     Panathur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4b051b15a78f2a5d247b82bfb2d0b80 = L.circleMarker(
+                [12.899821159506104, 77.67564527547437],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_23accb13771a157418ec67dc7c70ba48 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4055c8ea5fb05ca98df4cb8ff2d7d451 = $(`<div id="html_4055c8ea5fb05ca98df4cb8ff2d7d451" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Haralur<br>     <b>Name:</b> Kristal Jasper<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 4.0<br>     <b>Restaurant:</b> 5.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 3.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_23accb13771a157418ec67dc7c70ba48.setContent(html_4055c8ea5fb05ca98df4cb8ff2d7d451);
+            
+        
+
+        circle_marker_c4b051b15a78f2a5d247b82bfb2d0b80.bindPopup(popup_23accb13771a157418ec67dc7c70ba48)
+        ;
+
+        
+    
+    
+            circle_marker_c4b051b15a78f2a5d247b82bfb2d0b80.bindTooltip(
+                `<div>
+                     Haralur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_35d413331112c76a9d671461664d6494 = L.circleMarker(
+                [12.965186623844046, 77.60496514286322],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_0682881467b59fc6a00963097c7c1732 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31d48a8b4b69d3161c568b5c5e8b1f9c = $(`<div id="html_31d48a8b4b69d3161c568b5c5e8b1f9c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Richmond Town<br>     <b>Name:</b> Skyline Olympia<br>     <b>Cluster:</b> Amenity-Rich / Commercial Hub     <b>Pharmacy:</b> 14.0<br>     <b>Restaurant:</b> 110.0<br>     <b>School:</b> 36<br>     <b>Cafe:</b> 49.0<br>     <b>Hospital:</b> 9.0<br>     <b>Bank:</b> 49.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 7.0     </div>`)[0];
+                popup_0682881467b59fc6a00963097c7c1732.setContent(html_31d48a8b4b69d3161c568b5c5e8b1f9c);
+            
+        
+
+        circle_marker_35d413331112c76a9d671461664d6494.bindPopup(popup_0682881467b59fc6a00963097c7c1732)
+        ;
+
+        
+    
+    
+            circle_marker_35d413331112c76a9d671461664d6494.bindTooltip(
+                `<div>
+                     Richmond Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a2577945d76108834958c87f064d445e = L.circleMarker(
+                [12.96484699615927, 77.64004672047915],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_5c2d00158bcd51604817402aa6e5b5c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_721460f1bf0059e1960998203d71bb4c = $(`<div id="html_721460f1bf0059e1960998203d71bb4c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Indiranagar<br>     <b>Name:</b> Mln Raos<br>     <b>Cluster:</b> Amenity-Rich / Commercial Hub     <b>Pharmacy:</b> 29.0<br>     <b>Restaurant:</b> 150.0<br>     <b>School:</b> 22<br>     <b>Cafe:</b> 50.0<br>     <b>Hospital:</b> 17.0<br>     <b>Bank:</b> 37.0<br>     <b>Fitness Centre:</b> 11.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_5c2d00158bcd51604817402aa6e5b5c8.setContent(html_721460f1bf0059e1960998203d71bb4c);
+            
+        
+
+        circle_marker_a2577945d76108834958c87f064d445e.bindPopup(popup_5c2d00158bcd51604817402aa6e5b5c8)
+        ;
+
+        
+    
+    
+            circle_marker_a2577945d76108834958c87f064d445e.bindTooltip(
+                `<div>
+                     Indiranagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20ea64789e4f6cb959ba065a0eed9132 = L.circleMarker(
+                [13.004526450001698, 77.62653315000124],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_ca2ad2d51453c9e3573fb794d8ac101c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29a550539bbf05d9359b7b68255d560d = $(`<div id="html_29a550539bbf05d9359b7b68255d560d" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Shakuntala Nivas<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 18.0<br>     <b>Restaurant:</b> 14.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 8.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 16.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_ca2ad2d51453c9e3573fb794d8ac101c.setContent(html_29a550539bbf05d9359b7b68255d560d);
+            
+        
+
+        circle_marker_20ea64789e4f6cb959ba065a0eed9132.bindPopup(popup_ca2ad2d51453c9e3573fb794d8ac101c)
+        ;
+
+        
+    
+    
+            circle_marker_20ea64789e4f6cb959ba065a0eed9132.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3422a39cec2de6a1b3467b3b2abb56dc = L.circleMarker(
+                [13.072472418773637, 77.62644543725104],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_312f65c6cd06c8f146aa6a3a0484c3e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1fdcbc2231c68fea35f800665307746f = $(`<div id="html_1fdcbc2231c68fea35f800665307746f" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Arkavathy Layout<br>     <b>Name:</b> Aniket Nilayam<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 3.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 0.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 5.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_312f65c6cd06c8f146aa6a3a0484c3e5.setContent(html_1fdcbc2231c68fea35f800665307746f);
+            
+        
+
+        circle_marker_3422a39cec2de6a1b3467b3b2abb56dc.bindPopup(popup_312f65c6cd06c8f146aa6a3a0484c3e5)
+        ;
+
+        
+    
+    
+            circle_marker_3422a39cec2de6a1b3467b3b2abb56dc.bindTooltip(
+                `<div>
+                     Arkavathy Layout
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9484fed504d692d8dd6b9c1b0200da47 = L.circleMarker(
+                [12.991982699998331, 77.66113574998697],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_ec84b4ef465c6f3faeb6e835760a2919 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59635c4df4c2061ff405c48219de06f7 = $(`<div id="html_59635c4df4c2061ff405c48219de06f7" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> C V Raman Nagar<br>     <b>Name:</b> Sv Serinity<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 16.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 9.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_ec84b4ef465c6f3faeb6e835760a2919.setContent(html_59635c4df4c2061ff405c48219de06f7);
+            
+        
+
+        circle_marker_9484fed504d692d8dd6b9c1b0200da47.bindPopup(popup_ec84b4ef465c6f3faeb6e835760a2919)
+        ;
+
+        
+    
+    
+            circle_marker_9484fed504d692d8dd6b9c1b0200da47.bindTooltip(
+                `<div>
+                     C V Raman Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f15380e16c64bae8c3b73ce62641157 = L.circleMarker(
+                [12.906715549999623, 77.63952279999957],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_01be05825861cb12d6f936db62582cbc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ed363b885e6d7d9894a5ae5faba267a = $(`<div id="html_4ed363b885e6d7d9894a5ae5faba267a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> HSR Layout<br>     <b>Name:</b> 911G<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 66.0<br>     <b>School:</b> 18<br>     <b>Cafe:</b> 33.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 15.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_01be05825861cb12d6f936db62582cbc.setContent(html_4ed363b885e6d7d9894a5ae5faba267a);
+            
+        
+
+        circle_marker_1f15380e16c64bae8c3b73ce62641157.bindPopup(popup_01be05825861cb12d6f936db62582cbc)
+        ;
+
+        
+    
+    
+            circle_marker_1f15380e16c64bae8c3b73ce62641157.bindTooltip(
+                `<div>
+                     HSR Layout
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_28aa12c316ebd005491bfb4091b08022 = L.circleMarker(
+                [12.999095656751662, 77.62369733146055],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2fbf6a44569fcea101ceb3df676575ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c918b6b350b6c706705f07d97153068 = $(`<div id="html_3c918b6b350b6c706705f07d97153068" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Frazer Town<br>     <b>Name:</b> Marko Villa<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 19.0<br>     <b>Restaurant:</b> 29.0<br>     <b>School:</b> 15<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 24.0<br>     <b>Fitness Centre:</b> 3.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_2fbf6a44569fcea101ceb3df676575ee.setContent(html_3c918b6b350b6c706705f07d97153068);
+            
+        
+
+        circle_marker_28aa12c316ebd005491bfb4091b08022.bindPopup(popup_2fbf6a44569fcea101ceb3df676575ee)
+        ;
+
+        
+    
+    
+            circle_marker_28aa12c316ebd005491bfb4091b08022.bindTooltip(
+                `<div>
+                     Frazer Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_498d5647d9909dac1e3e68b2b0e34649 = L.circleMarker(
+                [12.917891700073724, 77.67275243426405],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_d1e21340517b1d0c9a2c9ce38fb0d4a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60dc7dbbbc916f6ee10d34408c25d1cc = $(`<div id="html_60dc7dbbbc916f6ee10d34408c25d1cc" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Haralur<br>     <b>Name:</b> Divyashree Elan - 1A<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 10.0<br>     <b>Restaurant:</b> 55.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 24.0<br>     <b>Hospital:</b> 19.0<br>     <b>Bank:</b> 28.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 4.0     </div>`)[0];
+                popup_d1e21340517b1d0c9a2c9ce38fb0d4a3.setContent(html_60dc7dbbbc916f6ee10d34408c25d1cc);
+            
+        
+
+        circle_marker_498d5647d9909dac1e3e68b2b0e34649.bindPopup(popup_d1e21340517b1d0c9a2c9ce38fb0d4a3)
+        ;
+
+        
+    
+    
+            circle_marker_498d5647d9909dac1e3e68b2b0e34649.bindTooltip(
+                `<div>
+                     Haralur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c3ec7cc04f60f09392c53d786cadb56 = L.circleMarker(
+                [12.948662538141212, 77.69324378434456],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6e7cb56af407f19c3f765231f9d28d5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6da22c6f27ceb387fea9fe15f53d7ffb = $(`<div id="html_6da22c6f27ceb387fea9fe15f53d7ffb" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Marathahalli<br>     <b>Name:</b> Tower C<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 11.0<br>     <b>Restaurant:</b> 72.0<br>     <b>School:</b> 3<br>     <b>Cafe:</b> 3.0<br>     <b>Hospital:</b> 4.0<br>     <b>Bank:</b> 10.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_6e7cb56af407f19c3f765231f9d28d5a.setContent(html_6da22c6f27ceb387fea9fe15f53d7ffb);
+            
+        
+
+        circle_marker_0c3ec7cc04f60f09392c53d786cadb56.bindPopup(popup_6e7cb56af407f19c3f765231f9d28d5a)
+        ;
+
+        
+    
+    
+            circle_marker_0c3ec7cc04f60f09392c53d786cadb56.bindTooltip(
+                `<div>
+                     Marathahalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20665a72d4e10cd371aaba005dc61968 = L.circleMarker(
+                [13.050631757199147, 77.5956613759827],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_d3c479a1dc2431d1eeab10675f2b8643 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48948f12570ef5bb5f4c417360701208 = $(`<div id="html_48948f12570ef5bb5f4c417360701208" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Hebbal<br>     <b>Name:</b> Tower 9<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 41.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 5.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 6.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_d3c479a1dc2431d1eeab10675f2b8643.setContent(html_48948f12570ef5bb5f4c417360701208);
+            
+        
+
+        circle_marker_20665a72d4e10cd371aaba005dc61968.bindPopup(popup_d3c479a1dc2431d1eeab10675f2b8643)
+        ;
+
+        
+    
+    
+            circle_marker_20665a72d4e10cd371aaba005dc61968.bindTooltip(
+                `<div>
+                     Hebbal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8727f619588392bf700bdc369590e61b = L.circleMarker(
+                [13.003469038995805, 77.62328258366549],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_34e6ca65f6ef66ad89fd2f20579bfce4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7aa7c6b716a6eb2c3af99e81bc0e6d26 = $(`<div id="html_7aa7c6b716a6eb2c3af99e81bc0e6d26" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Samrat<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 21.0<br>     <b>Restaurant:</b> 31.0<br>     <b>School:</b> 13<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 22.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_34e6ca65f6ef66ad89fd2f20579bfce4.setContent(html_7aa7c6b716a6eb2c3af99e81bc0e6d26);
+            
+        
+
+        circle_marker_8727f619588392bf700bdc369590e61b.bindPopup(popup_34e6ca65f6ef66ad89fd2f20579bfce4)
+        ;
+
+        
+    
+    
+            circle_marker_8727f619588392bf700bdc369590e61b.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_17debc98a9df0e0a692de37e635bd700 = L.circleMarker(
+                [12.863477574540092, 77.53678481163949],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_5742336ebd426c784893dba8913974e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2df136e6032fbaa5d5a0af502dac1c9d = $(`<div id="html_2df136e6032fbaa5d5a0af502dac1c9d" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Judicial Layout Phase II<br>     <b>Name:</b> Tower 7<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 4.0<br>     <b>Restaurant:</b> 7.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 0.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_5742336ebd426c784893dba8913974e2.setContent(html_2df136e6032fbaa5d5a0af502dac1c9d);
+            
+        
+
+        circle_marker_17debc98a9df0e0a692de37e635bd700.bindPopup(popup_5742336ebd426c784893dba8913974e2)
+        ;
+
+        
+    
+    
+            circle_marker_17debc98a9df0e0a692de37e635bd700.bindTooltip(
+                `<div>
+                     Judicial Layout Phase II
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8a0e2e0f82bde0340b6e477c69e40de = L.circleMarker(
+                [12.907598950003244, 77.5527782499994],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_532aa8528ade0f3cdb36886fd65b3169 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_785a8a82a2b5fa4bd2c84c7aa2dd1b0e = $(`<div id="html_785a8a82a2b5fa4bd2c84c7aa2dd1b0e" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Uttarahalli<br>     <b>Name:</b> Niveditha Apartments<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 8.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 11.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_532aa8528ade0f3cdb36886fd65b3169.setContent(html_785a8a82a2b5fa4bd2c84c7aa2dd1b0e);
+            
+        
+
+        circle_marker_a8a0e2e0f82bde0340b6e477c69e40de.bindPopup(popup_532aa8528ade0f3cdb36886fd65b3169)
+        ;
+
+        
+    
+    
+            circle_marker_a8a0e2e0f82bde0340b6e477c69e40de.bindTooltip(
+                `<div>
+                     Uttarahalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc0e6a7b4d7a1efa75ce652ef2ca4aad = L.circleMarker(
+                [13.014388174401956, 77.57922935584158],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_479af16bd18768f634c52d79cff7db11 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eca3f954bebacceefa5af03fd63ffae5 = $(`<div id="html_eca3f954bebacceefa5af03fd63ffae5" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Sadashivanagar<br>     <b>Name:</b> Ranka Enclave<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 19.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 13.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 17.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_479af16bd18768f634c52d79cff7db11.setContent(html_eca3f954bebacceefa5af03fd63ffae5);
+            
+        
+
+        circle_marker_cc0e6a7b4d7a1efa75ce652ef2ca4aad.bindPopup(popup_479af16bd18768f634c52d79cff7db11)
+        ;
+
+        
+    
+    
+            circle_marker_cc0e6a7b4d7a1efa75ce652ef2ca4aad.bindTooltip(
+                `<div>
+                     Sadashivanagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6cbba4eaa2476fcc9c0402f2ae62ff1 = L.circleMarker(
+                [12.866154345396437, 77.58037497511613],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_154915bf184cece30afc26efd15517ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b29494b076e527dc4b2665992ab6f8c = $(`<div id="html_8b29494b076e527dc4b2665992ab6f8c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Gottigere<br>     <b>Name:</b> Radiant Elitaire<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 3.0<br>     <b>School:</b> 10<br>     <b>Cafe:</b> 0.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_154915bf184cece30afc26efd15517ce.setContent(html_8b29494b076e527dc4b2665992ab6f8c);
+            
+        
+
+        circle_marker_e6cbba4eaa2476fcc9c0402f2ae62ff1.bindPopup(popup_154915bf184cece30afc26efd15517ce)
+        ;
+
+        
+    
+    
+            circle_marker_e6cbba4eaa2476fcc9c0402f2ae62ff1.bindTooltip(
+                `<div>
+                     Gottigere
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c66e471a8c2a0bbccbeddd5318713c0 = L.circleMarker(
+                [12.980663100063607, 77.69532610004387],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6f192bfb4b36e527345de3aef491f1e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74c92ee8aeb8fc90cf3a13756542820a = $(`<div id="html_74c92ee8aeb8fc90cf3a13756542820a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Bengaluru<br>     <b>Name:</b> Vrr Elegance<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 29.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 3.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 4.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_6f192bfb4b36e527345de3aef491f1e2.setContent(html_74c92ee8aeb8fc90cf3a13756542820a);
+            
+        
+
+        circle_marker_3c66e471a8c2a0bbccbeddd5318713c0.bindPopup(popup_6f192bfb4b36e527345de3aef491f1e2)
+        ;
+
+        
+    
+    
+            circle_marker_3c66e471a8c2a0bbccbeddd5318713c0.bindTooltip(
+                `<div>
+                     Bengaluru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6b2bae29471adc9040b92140a8c2592 = L.circleMarker(
+                [12.9975030245557, 77.5834248567851],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_7d566e45ec4c330d9f9e4049fc8d6b3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca98ac34cf39e1d221e3d0e186ffe1f7 = $(`<div id="html_ca98ac34cf39e1d221e3d0e186ffe1f7" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Vasanth Nagar<br>     <b>Name:</b> Fascinate Manor<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 9.0<br>     <b>Restaurant:</b> 28.0<br>     <b>School:</b> 11<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 26.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_7d566e45ec4c330d9f9e4049fc8d6b3c.setContent(html_ca98ac34cf39e1d221e3d0e186ffe1f7);
+            
+        
+
+        circle_marker_d6b2bae29471adc9040b92140a8c2592.bindPopup(popup_7d566e45ec4c330d9f9e4049fc8d6b3c)
+        ;
+
+        
+    
+    
+            circle_marker_d6b2bae29471adc9040b92140a8c2592.bindTooltip(
+                `<div>
+                     Vasanth Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c6dc729300a99a7c81ffa50a874eeea = L.circleMarker(
+                [12.998772868172658, 77.62292535160839],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_09c595a14d89c21cca26f050c33360fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eca30664b752fae8a942d0c89171674d = $(`<div id="html_eca30664b752fae8a942d0c89171674d" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Laxmi Nivas<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 19.0<br>     <b>Restaurant:</b> 34.0<br>     <b>School:</b> 19<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 24.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_09c595a14d89c21cca26f050c33360fd.setContent(html_eca30664b752fae8a942d0c89171674d);
+            
+        
+
+        circle_marker_6c6dc729300a99a7c81ffa50a874eeea.bindPopup(popup_09c595a14d89c21cca26f050c33360fd)
+        ;
+
+        
+    
+    
+            circle_marker_6c6dc729300a99a7c81ffa50a874eeea.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d9b2b6cce03d6ebf214945c8ef4568b = L.circleMarker(
+                [12.991426685726385, 77.70168302117307],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_b4515aab06ac5c010cb464eb89e522ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_39c318ad594ffbaa7bb1d7f4d1151015 = $(`<div id="html_39c318ad594ffbaa7bb1d7f4d1151015" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Mahadevapura<br>     <b>Name:</b> A Block<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 19.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 9.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 6.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 4.0     </div>`)[0];
+                popup_b4515aab06ac5c010cb464eb89e522ed.setContent(html_39c318ad594ffbaa7bb1d7f4d1151015);
+            
+        
+
+        circle_marker_2d9b2b6cce03d6ebf214945c8ef4568b.bindPopup(popup_b4515aab06ac5c010cb464eb89e522ed)
+        ;
+
+        
+    
+    
+            circle_marker_2d9b2b6cce03d6ebf214945c8ef4568b.bindTooltip(
+                `<div>
+                     Mahadevapura
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f548c859e82753f50e36e3741d833a82 = L.circleMarker(
+                [12.918021113418606, 77.67385782584381],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_59ca7ccf74a42c8aecb777371a307348 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d2c6364c61fdce716d3b735275e6c86 = $(`<div id="html_6d2c6364c61fdce716d3b735275e6c86" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Haralur<br>     <b>Name:</b> Pratle - 1E<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 9.0<br>     <b>Restaurant:</b> 57.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 25.0<br>     <b>Hospital:</b> 18.0<br>     <b>Bank:</b> 29.0<br>     <b>Fitness Centre:</b> 8.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_59ca7ccf74a42c8aecb777371a307348.setContent(html_6d2c6364c61fdce716d3b735275e6c86);
+            
+        
+
+        circle_marker_f548c859e82753f50e36e3741d833a82.bindPopup(popup_59ca7ccf74a42c8aecb777371a307348)
+        ;
+
+        
+    
+    
+            circle_marker_f548c859e82753f50e36e3741d833a82.bindTooltip(
+                `<div>
+                     Haralur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58f18156e561b08d4435daf03de131ce = L.circleMarker(
+                [12.999064150012787, 77.62298985001134],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_537a481ce35d0a13741eebec3f15f170 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_575a9382795156f40f92615b975fbda0 = $(`<div id="html_575a9382795156f40f92615b975fbda0" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Gp Nest<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 20.0<br>     <b>Restaurant:</b> 34.0<br>     <b>School:</b> 19<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 25.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_537a481ce35d0a13741eebec3f15f170.setContent(html_575a9382795156f40f92615b975fbda0);
+            
+        
+
+        circle_marker_58f18156e561b08d4435daf03de131ce.bindPopup(popup_537a481ce35d0a13741eebec3f15f170)
+        ;
+
+        
+    
+    
+            circle_marker_58f18156e561b08d4435daf03de131ce.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8f9957f3ca9679f7534e76122629263 = L.circleMarker(
+                [12.907048897184477, 77.6788196139563],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_c664c6cc4c1b84c645f878e52e186a23 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f2977ae57907309585860e2716d1951 = $(`<div id="html_9f2977ae57907309585860e2716d1951" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Junnasandra<br>     <b>Name:</b> Vaishanavi Orchid<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 24.0<br>     <b>School:</b> 3<br>     <b>Cafe:</b> 13.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 14.0<br>     <b>Fitness Centre:</b> 3.0<br>     <b>Sports Centre:</b> 7.0     </div>`)[0];
+                popup_c664c6cc4c1b84c645f878e52e186a23.setContent(html_9f2977ae57907309585860e2716d1951);
+            
+        
+
+        circle_marker_b8f9957f3ca9679f7534e76122629263.bindPopup(popup_c664c6cc4c1b84c645f878e52e186a23)
+        ;
+
+        
+    
+    
+            circle_marker_b8f9957f3ca9679f7534e76122629263.bindTooltip(
+                `<div>
+                     Junnasandra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e0785ea3c842566937920936bd75aeb = L.circleMarker(
+                [12.916406015800488, 77.69667244141577],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6ffe0f6ec5a3e17edd5311664b254024 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85928dd455c2ffc0925796d65f2b0a51 = $(`<div id="html_85928dd455c2ffc0925796d65f2b0a51" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Doddakannalli<br>     <b>Name:</b> Block-J<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 8.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 0.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_6ffe0f6ec5a3e17edd5311664b254024.setContent(html_85928dd455c2ffc0925796d65f2b0a51);
+            
+        
+
+        circle_marker_2e0785ea3c842566937920936bd75aeb.bindPopup(popup_6ffe0f6ec5a3e17edd5311664b254024)
+        ;
+
+        
+    
+    
+            circle_marker_2e0785ea3c842566937920936bd75aeb.bindTooltip(
+                `<div>
+                     Doddakannalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf1a86e4aa87909cede3c1e021394e83 = L.circleMarker(
+                [12.927888582415328, 77.6990415301339],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_5445b655aa10122707688cbc9e207ffb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2a86026dc0ac25325865735d37f2b7a3 = $(`<div id="html_2a86026dc0ac25325865735d37f2b7a3" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Panathur<br>     <b>Name:</b> G-2<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 11.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_5445b655aa10122707688cbc9e207ffb.setContent(html_2a86026dc0ac25325865735d37f2b7a3);
+            
+        
+
+        circle_marker_cf1a86e4aa87909cede3c1e021394e83.bindPopup(popup_5445b655aa10122707688cbc9e207ffb)
+        ;
+
+        
+    
+    
+            circle_marker_cf1a86e4aa87909cede3c1e021394e83.bindTooltip(
+                `<div>
+                     Panathur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0cfd8dd7d42ece6a2c018e4681d93aa = L.circleMarker(
+                [12.995590313535862, 77.73100072361363],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6ab2ef61c457c2978db664d71ce4ea17 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_32d74815620c822238103d63eba58702 = $(`<div id="html_32d74815620c822238103d63eba58702" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Hoodi<br>     <b>Name:</b> Tower 14<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 22.0<br>     <b>School:</b> 1<br>     <b>Cafe:</b> 6.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_6ab2ef61c457c2978db664d71ce4ea17.setContent(html_32d74815620c822238103d63eba58702);
+            
+        
+
+        circle_marker_d0cfd8dd7d42ece6a2c018e4681d93aa.bindPopup(popup_6ab2ef61c457c2978db664d71ce4ea17)
+        ;
+
+        
+    
+    
+            circle_marker_d0cfd8dd7d42ece6a2c018e4681d93aa.bindTooltip(
+                `<div>
+                     Hoodi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0c6a758cee90511b40bf471d211b296 = L.circleMarker(
+                [12.991321471712261, 77.61593352742351],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_5825bc0d03ec88688f59f75058d4fff8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0a233f7ca818efe36edd066a160cbeb = $(`<div id="html_c0a233f7ca818efe36edd066a160cbeb" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Frazer Town<br>     <b>Name:</b> Redifice Arlington Promenade<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 11.0<br>     <b>Restaurant:</b> 48.0<br>     <b>School:</b> 24<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 13.0<br>     <b>Bank:</b> 26.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_5825bc0d03ec88688f59f75058d4fff8.setContent(html_c0a233f7ca818efe36edd066a160cbeb);
+            
+        
+
+        circle_marker_b0c6a758cee90511b40bf471d211b296.bindPopup(popup_5825bc0d03ec88688f59f75058d4fff8)
+        ;
+
+        
+    
+    
+            circle_marker_b0c6a758cee90511b40bf471d211b296.bindTooltip(
+                `<div>
+                     Frazer Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5ffbdf5cfb77c9c0eb9402cfda73c715 = L.circleMarker(
+                [12.94783284163635, 77.7174739112004],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_f747ec6714cbe1ea3ea4be4fbb2297e6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b8cabb581d0aefd8f2dabfce5d87f2c = $(`<div id="html_0b8cabb581d0aefd8f2dabfce5d87f2c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Balagere<br>     <b>Name:</b> F<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 14.0<br>     <b>Restaurant:</b> 41.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 11.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 7.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_f747ec6714cbe1ea3ea4be4fbb2297e6.setContent(html_0b8cabb581d0aefd8f2dabfce5d87f2c);
+            
+        
+
+        circle_marker_5ffbdf5cfb77c9c0eb9402cfda73c715.bindPopup(popup_f747ec6714cbe1ea3ea4be4fbb2297e6)
+        ;
+
+        
+    
+    
+            circle_marker_5ffbdf5cfb77c9c0eb9402cfda73c715.bindTooltip(
+                `<div>
+                     Balagere
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f210cde7762d232d0d9bf83cf01bf3a = L.circleMarker(
+                [12.967199897322494, 77.7502250509079],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_74f76b8a12ff92767c68df71448600d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d70cecbd634f50844466de0829a04bf = $(`<div id="html_6d70cecbd634f50844466de0829a04bf" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Whitefield<br>     <b>Name:</b> A Block<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 25.0<br>     <b>School:</b> 16<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 12.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_74f76b8a12ff92767c68df71448600d3.setContent(html_6d70cecbd634f50844466de0829a04bf);
+            
+        
+
+        circle_marker_7f210cde7762d232d0d9bf83cf01bf3a.bindPopup(popup_74f76b8a12ff92767c68df71448600d3)
+        ;
+
+        
+    
+    
+            circle_marker_7f210cde7762d232d0d9bf83cf01bf3a.bindTooltip(
+                `<div>
+                     Whitefield
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e66fb908fa9d189ec797e1ffc61d0bf1 = L.circleMarker(
+                [12.972801592259996, 77.6404885253705],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_5be1d98c77469ea8baad750c5abbfdcd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7ad127a927bda361b4b03d8ca1d0852f = $(`<div id="html_7ad127a927bda361b4b03d8ca1d0852f" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Indiranagar<br>     <b>Name:</b> Vars Magnolia<br>     <b>Cluster:</b> Amenity-Rich / Commercial Hub     <b>Pharmacy:</b> 35.0<br>     <b>Restaurant:</b> 206.0<br>     <b>School:</b> 28<br>     <b>Cafe:</b> 72.0<br>     <b>Hospital:</b> 27.0<br>     <b>Bank:</b> 58.0<br>     <b>Fitness Centre:</b> 15.0<br>     <b>Sports Centre:</b> 9.0     </div>`)[0];
+                popup_5be1d98c77469ea8baad750c5abbfdcd.setContent(html_7ad127a927bda361b4b03d8ca1d0852f);
+            
+        
+
+        circle_marker_e66fb908fa9d189ec797e1ffc61d0bf1.bindPopup(popup_5be1d98c77469ea8baad750c5abbfdcd)
+        ;
+
+        
+    
+    
+            circle_marker_e66fb908fa9d189ec797e1ffc61d0bf1.bindTooltip(
+                `<div>
+                     Indiranagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b515aca488f4b54ae02173b8ecddb27a = L.circleMarker(
+                [12.9082093737648, 77.64150726541996],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_8a46e27fb9eaa7bf7d908ff8dd7444fa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_69f3aac2fd47ae8a603a158174f5be99 = $(`<div id="html_69f3aac2fd47ae8a603a158174f5be99" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> HSR Layout<br>     <b>Name:</b> Veena<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 14.0<br>     <b>Restaurant:</b> 82.0<br>     <b>School:</b> 20<br>     <b>Cafe:</b> 40.0<br>     <b>Hospital:</b> 13.0<br>     <b>Bank:</b> 19.0<br>     <b>Fitness Centre:</b> 8.0<br>     <b>Sports Centre:</b> 7.0     </div>`)[0];
+                popup_8a46e27fb9eaa7bf7d908ff8dd7444fa.setContent(html_69f3aac2fd47ae8a603a158174f5be99);
+            
+        
+
+        circle_marker_b515aca488f4b54ae02173b8ecddb27a.bindPopup(popup_8a46e27fb9eaa7bf7d908ff8dd7444fa)
+        ;
+
+        
+    
+    
+            circle_marker_b515aca488f4b54ae02173b8ecddb27a.bindTooltip(
+                `<div>
+                     HSR Layout
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_845c52f9ab6aca082861d9f7a1a5d7db = L.circleMarker(
+                [12.955271979233123, 77.64804186604266],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_12b56ab9bfc0e1f6642774202223ef5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01f57b6ef7786121b7ae2f01631d1a27 = $(`<div id="html_01f57b6ef7786121b7ae2f01631d1a27" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Rustum Bagh<br>     <b>Name:</b> Block 20<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 15.0<br>     <b>Restaurant:</b> 55.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 11.0<br>     <b>Bank:</b> 14.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_12b56ab9bfc0e1f6642774202223ef5f.setContent(html_01f57b6ef7786121b7ae2f01631d1a27);
+            
+        
+
+        circle_marker_845c52f9ab6aca082861d9f7a1a5d7db.bindPopup(popup_12b56ab9bfc0e1f6642774202223ef5f)
+        ;
+
+        
+    
+    
+            circle_marker_845c52f9ab6aca082861d9f7a1a5d7db.bindTooltip(
+                `<div>
+                     Rustum Bagh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e08c019950c3e24b63472f37f08e1229 = L.circleMarker(
+                [12.99903039336023, 77.62381771853913],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6e05aa58b798587cff2d630ca32e91c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5239d07837664be1d5e7bca9fce39a63 = $(`<div id="html_5239d07837664be1d5e7bca9fce39a63" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Frazer Town<br>     <b>Name:</b> Padua<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 19.0<br>     <b>Restaurant:</b> 30.0<br>     <b>School:</b> 14<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 24.0<br>     <b>Fitness Centre:</b> 3.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_6e05aa58b798587cff2d630ca32e91c5.setContent(html_5239d07837664be1d5e7bca9fce39a63);
+            
+        
+
+        circle_marker_e08c019950c3e24b63472f37f08e1229.bindPopup(popup_6e05aa58b798587cff2d630ca32e91c5)
+        ;
+
+        
+    
+    
+            circle_marker_e08c019950c3e24b63472f37f08e1229.bindTooltip(
+                `<div>
+                     Frazer Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97a8aec40ce8e9d49e5874b93d59a349 = L.circleMarker(
+                [13.004639242679193, 77.62145612151356],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_548b0d01d2e75f6a71b886e9c2008b2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8974edb532063a2b3268038499b33509 = $(`<div id="html_8974edb532063a2b3268038499b33509" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Modi Pride<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 19.0<br>     <b>Restaurant:</b> 33.0<br>     <b>School:</b> 14<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 9.0<br>     <b>Bank:</b> 20.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_548b0d01d2e75f6a71b886e9c2008b2b.setContent(html_8974edb532063a2b3268038499b33509);
+            
+        
+
+        circle_marker_97a8aec40ce8e9d49e5874b93d59a349.bindPopup(popup_548b0d01d2e75f6a71b886e9c2008b2b)
+        ;
+
+        
+    
+    
+            circle_marker_97a8aec40ce8e9d49e5874b93d59a349.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f47dee1190e2016fff0d908aff40e98b = L.circleMarker(
+                [12.982855510577687, 77.72140281331733],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_acc2bf78396e62938348b42d7f901740 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_641669139eb6d63c8403e5a24ce6fe64 = $(`<div id="html_641669139eb6d63c8403e5a24ce6fe64" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> EPIP Zone<br>     <b>Name:</b> Circular Apartment-1<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 33.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 11.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 7.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_acc2bf78396e62938348b42d7f901740.setContent(html_641669139eb6d63c8403e5a24ce6fe64);
+            
+        
+
+        circle_marker_f47dee1190e2016fff0d908aff40e98b.bindPopup(popup_acc2bf78396e62938348b42d7f901740)
+        ;
+
+        
+    
+    
+            circle_marker_f47dee1190e2016fff0d908aff40e98b.bindTooltip(
+                `<div>
+                     EPIP Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c091312ee7bddc6b6278b33beffe2ab6 = L.circleMarker(
+                [12.966256933980132, 77.7168731186791],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_b8efd63e77d7da84b78066bfdc5b76b0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f1c35819a5c0aaeb6393c203c0a24290 = $(`<div id="html_f1c35819a5c0aaeb6393c203c0a24290" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> EPIP Zone<br>     <b>Name:</b> Parimala Archid<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 27.0<br>     <b>Restaurant:</b> 52.0<br>     <b>School:</b> 12<br>     <b>Cafe:</b> 32.0<br>     <b>Hospital:</b> 8.0<br>     <b>Bank:</b> 9.0<br>     <b>Fitness Centre:</b> 16.0<br>     <b>Sports Centre:</b> 7.0     </div>`)[0];
+                popup_b8efd63e77d7da84b78066bfdc5b76b0.setContent(html_f1c35819a5c0aaeb6393c203c0a24290);
+            
+        
+
+        circle_marker_c091312ee7bddc6b6278b33beffe2ab6.bindPopup(popup_b8efd63e77d7da84b78066bfdc5b76b0)
+        ;
+
+        
+    
+    
+            circle_marker_c091312ee7bddc6b6278b33beffe2ab6.bindTooltip(
+                `<div>
+                     EPIP Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4256ce2f851cb254998880540323d569 = L.circleMarker(
+                [12.861052749785625, 77.53003455086903],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_f6347d5761780c72e15ea0cf74e461d4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4eaec3fd0b95e8917e321ffd36221e9b = $(`<div id="html_4eaec3fd0b95e8917e321ffd36221e9b" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Kanakapura Road<br>     <b>Name:</b> Tower 2<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 3.0<br>     <b>School:</b> 3<br>     <b>Cafe:</b> 0.0<br>     <b>Hospital:</b> 0.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_f6347d5761780c72e15ea0cf74e461d4.setContent(html_4eaec3fd0b95e8917e321ffd36221e9b);
+            
+        
+
+        circle_marker_4256ce2f851cb254998880540323d569.bindPopup(popup_f6347d5761780c72e15ea0cf74e461d4)
+        ;
+
+        
+    
+    
+            circle_marker_4256ce2f851cb254998880540323d569.bindTooltip(
+                `<div>
+                     Kanakapura Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4fd6497f553eb4c3b544347fd2d9407a = L.circleMarker(
+                [13.11675088520767, 77.57692465899572],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2ccd072f046cfaf119d064702cd820fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_16a5a5bda3ceec390559d098226c83ca = $(`<div id="html_16a5a5bda3ceec390559d098226c83ca" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Isaac Layout<br>     <b>Name:</b> Phase 2<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 4.0<br>     <b>School:</b> 1<br>     <b>Cafe:</b> 0.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_2ccd072f046cfaf119d064702cd820fe.setContent(html_16a5a5bda3ceec390559d098226c83ca);
+            
+        
+
+        circle_marker_4fd6497f553eb4c3b544347fd2d9407a.bindPopup(popup_2ccd072f046cfaf119d064702cd820fe)
+        ;
+
+        
+    
+    
+            circle_marker_4fd6497f553eb4c3b544347fd2d9407a.bindTooltip(
+                `<div>
+                     Isaac Layout
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f32e9d16321144e64285b648cda0d559 = L.circleMarker(
+                [12.965615447554312, 77.7256366684076],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_0ae418e3a034ca861120a4a698ac98a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f09de67f88a79f033106246b9a986759 = $(`<div id="html_f09de67f88a79f033106246b9a986759" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Shriram Samskruti Apartments<br>     <b>Name:</b> Tower J<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 16.0<br>     <b>Restaurant:</b> 29.0<br>     <b>School:</b> 8<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 4.0     </div>`)[0];
+                popup_0ae418e3a034ca861120a4a698ac98a1.setContent(html_f09de67f88a79f033106246b9a986759);
+            
+        
+
+        circle_marker_f32e9d16321144e64285b648cda0d559.bindPopup(popup_0ae418e3a034ca861120a4a698ac98a1)
+        ;
+
+        
+    
+    
+            circle_marker_f32e9d16321144e64285b648cda0d559.bindTooltip(
+                `<div>
+                     Shriram Samskruti Apartments
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e43c70d02b438d933692dcc5f682309 = L.circleMarker(
+                [13.03652617912713, 77.6655826374295],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2c6cf402a011b8303e1338e7b68c973d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9abf1b47ba89e05f21a9097e42f32a8c = $(`<div id="html_9abf1b47ba89e05f21a9097e42f32a8c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Horamavu<br>     <b>Name:</b> Sri Gayathri Prime<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 5.0<br>     <b>School:</b> 10<br>     <b>Cafe:</b> 0.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_2c6cf402a011b8303e1338e7b68c973d.setContent(html_9abf1b47ba89e05f21a9097e42f32a8c);
+            
+        
+
+        circle_marker_2e43c70d02b438d933692dcc5f682309.bindPopup(popup_2c6cf402a011b8303e1338e7b68c973d)
+        ;
+
+        
+    
+    
+            circle_marker_2e43c70d02b438d933692dcc5f682309.bindTooltip(
+                `<div>
+                     Horamavu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb3c1dce0f0fe1e21952b61777518d32 = L.circleMarker(
+                [12.974502850045607, 77.62487799997187],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_82c9a435bdb16d33b66c5302ece2f53d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c2346fe41e727bc2a0ba4d864472d884 = $(`<div id="html_c2346fe41e727bc2a0ba4d864472d884" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Halasuru<br>     <b>Name:</b> Bhadra Landmark<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 10.0<br>     <b>Restaurant:</b> 30.0<br>     <b>School:</b> 20<br>     <b>Cafe:</b> 9.0<br>     <b>Hospital:</b> 13.0<br>     <b>Bank:</b> 19.0<br>     <b>Fitness Centre:</b> 3.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_82c9a435bdb16d33b66c5302ece2f53d.setContent(html_c2346fe41e727bc2a0ba4d864472d884);
+            
+        
+
+        circle_marker_fb3c1dce0f0fe1e21952b61777518d32.bindPopup(popup_82c9a435bdb16d33b66c5302ece2f53d)
+        ;
+
+        
+    
+    
+            circle_marker_fb3c1dce0f0fe1e21952b61777518d32.bindTooltip(
+                `<div>
+                     Halasuru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2b58228bf7bc7de10e76ac06d9cb999 = L.circleMarker(
+                [13.037302669311508, 77.59738305595573],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_f7b0dd834a984216047ba3642dbdff00 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_05cfce69ed33e98abea9b09a68d4a61d = $(`<div id="html_05cfce69ed33e98abea9b09a68d4a61d" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Hebbal<br>     <b>Name:</b> Meridian Garden<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 8.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 3.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_f7b0dd834a984216047ba3642dbdff00.setContent(html_05cfce69ed33e98abea9b09a68d4a61d);
+            
+        
+
+        circle_marker_b2b58228bf7bc7de10e76ac06d9cb999.bindPopup(popup_f7b0dd834a984216047ba3642dbdff00)
+        ;
+
+        
+    
+    
+            circle_marker_b2b58228bf7bc7de10e76ac06d9cb999.bindTooltip(
+                `<div>
+                     Hebbal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d7fe3e7ac890854e9bde601dd961027 = L.circleMarker(
+                [12.920154624068497, 77.69499297697257],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2ed3874f109119b533075d6ef764aae5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06f9d00f87ad4e582403f1cc6338964a = $(`<div id="html_06f9d00f87ad4e582403f1cc6338964a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Doddakannalli<br>     <b>Name:</b> C2<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 4.0<br>     <b>Restaurant:</b> 16.0<br>     <b>School:</b> 2<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 0.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_2ed3874f109119b533075d6ef764aae5.setContent(html_06f9d00f87ad4e582403f1cc6338964a);
+            
+        
+
+        circle_marker_2d7fe3e7ac890854e9bde601dd961027.bindPopup(popup_2ed3874f109119b533075d6ef764aae5)
+        ;
+
+        
+    
+    
+            circle_marker_2d7fe3e7ac890854e9bde601dd961027.bindTooltip(
+                `<div>
+                     Doddakannalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d96101c14ec1961fa76462f1e71afca2 = L.circleMarker(
+                [12.925520043545932, 77.67273552806755],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6ccae387724b9347feed764d7bc8c5b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_607bec4d822cc4086cd80f679a82aadb = $(`<div id="html_607bec4d822cc4086cd80f679a82aadb" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Bellanduru<br>     <b>Name:</b> Feb 30 Marigold Coliving Pg<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 8.0<br>     <b>Restaurant:</b> 47.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 13.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 18.0<br>     <b>Fitness Centre:</b> 8.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_6ccae387724b9347feed764d7bc8c5b8.setContent(html_607bec4d822cc4086cd80f679a82aadb);
+            
+        
+
+        circle_marker_d96101c14ec1961fa76462f1e71afca2.bindPopup(popup_6ccae387724b9347feed764d7bc8c5b8)
+        ;
+
+        
+    
+    
+            circle_marker_d96101c14ec1961fa76462f1e71afca2.bindTooltip(
+                `<div>
+                     Bellanduru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_46460c576145f700c121824b4ecbcf9f = L.circleMarker(
+                [12.899607900000001, 77.621306],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_3490a7d305e0ab93c97de4eca1bc6510 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b872e7a9249c1186c2e25a1664b1288d = $(`<div id="html_b872e7a9249c1186c2e25a1664b1288d" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Hongasandra<br>     <b>Name:</b> Block B<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 9.0<br>     <b>Restaurant:</b> 8.0<br>     <b>School:</b> 22<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_3490a7d305e0ab93c97de4eca1bc6510.setContent(html_b872e7a9249c1186c2e25a1664b1288d);
+            
+        
+
+        circle_marker_46460c576145f700c121824b4ecbcf9f.bindPopup(popup_3490a7d305e0ab93c97de4eca1bc6510)
+        ;
+
+        
+    
+    
+            circle_marker_46460c576145f700c121824b4ecbcf9f.bindTooltip(
+                `<div>
+                     Hongasandra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_292db27d5f8bff9467f8ae95e827ba83 = L.circleMarker(
+                [12.920952500017764, 77.53709205000635],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_765bdab49214c6c57e438838ad873b31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eeeb8ed6c5c87b01c1f320f7b5f757c0 = $(`<div id="html_eeeb8ed6c5c87b01c1f320f7b5f757c0" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> The Promont<br>     <b>Name:</b> Elana<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 1.0<br>     <b>Restaurant:</b> 4.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_765bdab49214c6c57e438838ad873b31.setContent(html_eeeb8ed6c5c87b01c1f320f7b5f757c0);
+            
+        
+
+        circle_marker_292db27d5f8bff9467f8ae95e827ba83.bindPopup(popup_765bdab49214c6c57e438838ad873b31)
+        ;
+
+        
+    
+    
+            circle_marker_292db27d5f8bff9467f8ae95e827ba83.bindTooltip(
+                `<div>
+                     The Promont
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b413973f36fb0f0fb79bab1632d3e4ea = L.circleMarker(
+                [12.899038857107639, 77.65319137760434],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_ec6a1e1183b341ea50a21bd51cc9d5af = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c1e2baf81717e388f1dc1b5ff62d1407 = $(`<div id="html_c1e2baf81717e388f1dc1b5ff62d1407" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Kudlu<br>     <b>Name:</b> Nd Sepal D Block<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 6.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 3.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_ec6a1e1183b341ea50a21bd51cc9d5af.setContent(html_c1e2baf81717e388f1dc1b5ff62d1407);
+            
+        
+
+        circle_marker_b413973f36fb0f0fb79bab1632d3e4ea.bindPopup(popup_ec6a1e1183b341ea50a21bd51cc9d5af)
+        ;
+
+        
+    
+    
+            circle_marker_b413973f36fb0f0fb79bab1632d3e4ea.bindTooltip(
+                `<div>
+                     Kudlu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5bd599f037c17fd0a34f9975b7bf2a4 = L.circleMarker(
+                [12.89819354397367, 77.6739373681483],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_141a22ed6a153cc641f53d9e4df79175 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58ceca891e12e1f92f24654bffc184b2 = $(`<div id="html_58ceca891e12e1f92f24654bffc184b2" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Haralur<br>     <b>Name:</b> Sathya Nilayam<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 4.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_141a22ed6a153cc641f53d9e4df79175.setContent(html_58ceca891e12e1f92f24654bffc184b2);
+            
+        
+
+        circle_marker_d5bd599f037c17fd0a34f9975b7bf2a4.bindPopup(popup_141a22ed6a153cc641f53d9e4df79175)
+        ;
+
+        
+    
+    
+            circle_marker_d5bd599f037c17fd0a34f9975b7bf2a4.bindTooltip(
+                `<div>
+                     Haralur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_381c90e7f428833fd63538b9f0a641d6 = L.circleMarker(
+                [12.917200429387224, 77.68990285581566],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_44a6655eef1f9eb58c87bd098af4ff29 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_391536f8a2cb3d8a0be8618d79900773 = $(`<div id="html_391536f8a2cb3d8a0be8618d79900773" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Doddakannalli<br>     <b>Name:</b> Maple Tower-5 Block T<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 43.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 4.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_44a6655eef1f9eb58c87bd098af4ff29.setContent(html_391536f8a2cb3d8a0be8618d79900773);
+            
+        
+
+        circle_marker_381c90e7f428833fd63538b9f0a641d6.bindPopup(popup_44a6655eef1f9eb58c87bd098af4ff29)
+        ;
+
+        
+    
+    
+            circle_marker_381c90e7f428833fd63538b9f0a641d6.bindTooltip(
+                `<div>
+                     Doddakannalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1fded491d3d7c62285c9d326ab9abecf = L.circleMarker(
+                [12.93219316049888, 77.7457326081077],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2ae2a935cbbf86476c431023cb0901ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f891ad57ef57f93dee971f42cfec180f = $(`<div id="html_f891ad57ef57f93dee971f42cfec180f" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Varthur<br>     <b>Name:</b> Tower B<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 14.0<br>     <b>School:</b> 8<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_2ae2a935cbbf86476c431023cb0901ce.setContent(html_f891ad57ef57f93dee971f42cfec180f);
+            
+        
+
+        circle_marker_1fded491d3d7c62285c9d326ab9abecf.bindPopup(popup_2ae2a935cbbf86476c431023cb0901ce)
+        ;
+
+        
+    
+    
+            circle_marker_1fded491d3d7c62285c9d326ab9abecf.bindTooltip(
+                `<div>
+                     Varthur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffd908bc742487dca8afcae9624a6f2b = L.circleMarker(
+                [12.902360594219138, 77.66278222966089],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_54106f6ea9466246bc46ea9d97c49787 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_289ef10a0ef999ab776e35efebf98e53 = $(`<div id="html_289ef10a0ef999ab776e35efebf98e53" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Haralur<br>     <b>Name:</b> Tower 1<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 3.0<br>     <b>Restaurant:</b> 1.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_54106f6ea9466246bc46ea9d97c49787.setContent(html_289ef10a0ef999ab776e35efebf98e53);
+            
+        
+
+        circle_marker_ffd908bc742487dca8afcae9624a6f2b.bindPopup(popup_54106f6ea9466246bc46ea9d97c49787)
+        ;
+
+        
+    
+    
+            circle_marker_ffd908bc742487dca8afcae9624a6f2b.bindTooltip(
+                `<div>
+                     Haralur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d75e9b3b9aa5d0e2d9804ccd98726647 = L.circleMarker(
+                [12.9650771499952, 77.53231099999685],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_1413cfdf9445680505339014183fbe9b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c1084354d2d33e1ae8a3ba38ff6f34d2 = $(`<div id="html_c1084354d2d33e1ae8a3ba38ff6f34d2" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Vijaya Nagar<br>     <b>Name:</b> Sapthagiri Nilaya<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 21.0<br>     <b>Restaurant:</b> 41.0<br>     <b>School:</b> 12<br>     <b>Cafe:</b> 9.0<br>     <b>Hospital:</b> 30.0<br>     <b>Bank:</b> 25.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_1413cfdf9445680505339014183fbe9b.setContent(html_c1084354d2d33e1ae8a3ba38ff6f34d2);
+            
+        
+
+        circle_marker_d75e9b3b9aa5d0e2d9804ccd98726647.bindPopup(popup_1413cfdf9445680505339014183fbe9b)
+        ;
+
+        
+    
+    
+            circle_marker_d75e9b3b9aa5d0e2d9804ccd98726647.bindTooltip(
+                `<div>
+                     Vijaya Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f831d9dc4d9043f86fc5bebe5e5fc9bc = L.circleMarker(
+                [12.933396399964742, 77.70410589848088],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6d8702c63b427aa9659462a160bf4431 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c07f6ac106329b86ed06485d47b078e4 = $(`<div id="html_c07f6ac106329b86ed06485d47b078e4" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Panathur<br>     <b>Name:</b> N M Vihar<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 22.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_6d8702c63b427aa9659462a160bf4431.setContent(html_c07f6ac106329b86ed06485d47b078e4);
+            
+        
+
+        circle_marker_f831d9dc4d9043f86fc5bebe5e5fc9bc.bindPopup(popup_6d8702c63b427aa9659462a160bf4431)
+        ;
+
+        
+    
+    
+            circle_marker_f831d9dc4d9043f86fc5bebe5e5fc9bc.bindTooltip(
+                `<div>
+                     Panathur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65daf453d6633aabf4ac665a44296abe = L.circleMarker(
+                [12.927520150015498, 77.67249195000906],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_67af9fa527ed2b5836533afb431eb492 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc875b370f3ef369ceaa272ebfc702f8 = $(`<div id="html_dc875b370f3ef369ceaa272ebfc702f8" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Bellanduru<br>     <b>Name:</b> Kaveri Residency<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 8.0<br>     <b>Restaurant:</b> 43.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 8.0<br>     <b>Bank:</b> 17.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_67af9fa527ed2b5836533afb431eb492.setContent(html_dc875b370f3ef369ceaa272ebfc702f8);
+            
+        
+
+        circle_marker_65daf453d6633aabf4ac665a44296abe.bindPopup(popup_67af9fa527ed2b5836533afb431eb492)
+        ;
+
+        
+    
+    
+            circle_marker_65daf453d6633aabf4ac665a44296abe.bindTooltip(
+                `<div>
+                     Bellanduru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_470d23ead222269d1b04523f20dbd2a1 = L.circleMarker(
+                [12.921187236511395, 77.49271473406144],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2fae2a629db315702321b6b736bbdbac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0be01473d9e769eef60f62fb22af226a = $(`<div id="html_0be01473d9e769eef60f62fb22af226a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Kengeri<br>     <b>Name:</b> Block D-E<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 7.0<br>     <b>School:</b> 8<br>     <b>Cafe:</b> 3.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_2fae2a629db315702321b6b736bbdbac.setContent(html_0be01473d9e769eef60f62fb22af226a);
+            
+        
+
+        circle_marker_470d23ead222269d1b04523f20dbd2a1.bindPopup(popup_2fae2a629db315702321b6b736bbdbac)
+        ;
+
+        
+    
+    
+            circle_marker_470d23ead222269d1b04523f20dbd2a1.bindTooltip(
+                `<div>
+                     Kengeri
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79504bf266c8fb4753178041722a5aa7 = L.circleMarker(
+                [12.864245353816845, 77.61146534993753],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_082b70d86bd93e9a5be2b311b90690d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64cdd0d58ac772161bf19a4b33fc6c3e = $(`<div id="html_64cdd0d58ac772161bf19a4b33fc6c3e" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Beguru<br>     <b>Name:</b> Tower 15<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 1.0<br>     <b>Restaurant:</b> 0.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 0.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 0.0     </div>`)[0];
+                popup_082b70d86bd93e9a5be2b311b90690d3.setContent(html_64cdd0d58ac772161bf19a4b33fc6c3e);
+            
+        
+
+        circle_marker_79504bf266c8fb4753178041722a5aa7.bindPopup(popup_082b70d86bd93e9a5be2b311b90690d3)
+        ;
+
+        
+    
+    
+            circle_marker_79504bf266c8fb4753178041722a5aa7.bindTooltip(
+                `<div>
+                     Beguru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ac11a3ae172249f9ca1268716f8645a = L.circleMarker(
+                [12.929879365749878, 77.66981557864057],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_53bb89e4bba80f1af1fcc62bc795df6b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_30d74a20be1f204bcc5e7072a040806f = $(`<div id="html_30d74a20be1f204bcc5e7072a040806f" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Bellanduru<br>     <b>Name:</b> Block 6<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 36.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 17.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_53bb89e4bba80f1af1fcc62bc795df6b.setContent(html_30d74a20be1f204bcc5e7072a040806f);
+            
+        
+
+        circle_marker_8ac11a3ae172249f9ca1268716f8645a.bindPopup(popup_53bb89e4bba80f1af1fcc62bc795df6b)
+        ;
+
+        
+    
+    
+            circle_marker_8ac11a3ae172249f9ca1268716f8645a.bindTooltip(
+                `<div>
+                     Bellanduru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de00db39dc51624861758b806154ff76 = L.circleMarker(
+                [13.001953900009962, 77.62105085000832],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_d77763e72c838128628d8f65a6a79672 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5995e739f7c8662987536010db20f84e = $(`<div id="html_5995e739f7c8662987536010db20f84e" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Frazer Town<br>     <b>Name:</b> Little Flower<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 18.0<br>     <b>Restaurant:</b> 40.0<br>     <b>School:</b> 22<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 9.0<br>     <b>Bank:</b> 25.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_d77763e72c838128628d8f65a6a79672.setContent(html_5995e739f7c8662987536010db20f84e);
+            
+        
+
+        circle_marker_de00db39dc51624861758b806154ff76.bindPopup(popup_d77763e72c838128628d8f65a6a79672)
+        ;
+
+        
+    
+    
+            circle_marker_de00db39dc51624861758b806154ff76.bindTooltip(
+                `<div>
+                     Frazer Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f26f4cdc741de03887bdb3c943a21d52 = L.circleMarker(
+                [12.95908935000933, 77.72121895000377],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_4678e9b9cf0e8e9e7ca2abe0f0fe1536 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7003caca94a51eeeec936eb90f556682 = $(`<div id="html_7003caca94a51eeeec936eb90f556682" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> BEML Layout 6th Stage<br>     <b>Name:</b> Sai Enclave<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 32.0<br>     <b>Restaurant:</b> 76.0<br>     <b>School:</b> 12<br>     <b>Cafe:</b> 37.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 15.0<br>     <b>Fitness Centre:</b> 17.0<br>     <b>Sports Centre:</b> 10.0     </div>`)[0];
+                popup_4678e9b9cf0e8e9e7ca2abe0f0fe1536.setContent(html_7003caca94a51eeeec936eb90f556682);
+            
+        
+
+        circle_marker_f26f4cdc741de03887bdb3c943a21d52.bindPopup(popup_4678e9b9cf0e8e9e7ca2abe0f0fe1536)
+        ;
+
+        
+    
+    
+            circle_marker_f26f4cdc741de03887bdb3c943a21d52.bindTooltip(
+                `<div>
+                     BEML Layout 6th Stage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae1066e672dfddfcea52cd60d1811643 = L.circleMarker(
+                [13.000588100002869, 77.62478239999297],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_184399ff69d5428a0428849da2c24b3b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5fa006d42225c4698b682c0a0bd7afda = $(`<div id="html_5fa006d42225c4698b682c0a0bd7afda" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> High Gates<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 18.0<br>     <b>Restaurant:</b> 25.0<br>     <b>School:</b> 10<br>     <b>Cafe:</b> 13.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 21.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_184399ff69d5428a0428849da2c24b3b.setContent(html_5fa006d42225c4698b682c0a0bd7afda);
+            
+        
+
+        circle_marker_ae1066e672dfddfcea52cd60d1811643.bindPopup(popup_184399ff69d5428a0428849da2c24b3b)
+        ;
+
+        
+    
+    
+            circle_marker_ae1066e672dfddfcea52cd60d1811643.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8344292f8126e2326cfb4009070cf1de = L.circleMarker(
+                [12.933260785695142, 77.70317507389414],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_3d0734725a39b1ed089df04dbbfb396b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_364569505f5ef260490c1d514e5bb289 = $(`<div id="html_364569505f5ef260490c1d514e5bb289" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Panathur<br>     <b>Name:</b> Block 2<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 27.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 1.0<br>     <b>Bank:</b> 3.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_3d0734725a39b1ed089df04dbbfb396b.setContent(html_364569505f5ef260490c1d514e5bb289);
+            
+        
+
+        circle_marker_8344292f8126e2326cfb4009070cf1de.bindPopup(popup_3d0734725a39b1ed089df04dbbfb396b)
+        ;
+
+        
+    
+    
+            circle_marker_8344292f8126e2326cfb4009070cf1de.bindTooltip(
+                `<div>
+                     Panathur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f52a8f6b6d3a660b9ae031c1b669ef6f = L.circleMarker(
+                [13.00430725425028, 77.62011464515938],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_e5add4259fa81022d9cf8330a67d33d2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e0e779ce932505c99cef54fd1e777ced = $(`<div id="html_e0e779ce932505c99cef54fd1e777ced" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Marble Arch Apartments<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 16.0<br>     <b>Restaurant:</b> 37.0<br>     <b>School:</b> 16<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 24.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_e5add4259fa81022d9cf8330a67d33d2.setContent(html_e0e779ce932505c99cef54fd1e777ced);
+            
+        
+
+        circle_marker_f52a8f6b6d3a660b9ae031c1b669ef6f.bindPopup(popup_e5add4259fa81022d9cf8330a67d33d2)
+        ;
+
+        
+    
+    
+            circle_marker_f52a8f6b6d3a660b9ae031c1b669ef6f.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3cdfd054e3932331e4487108faaf9029 = L.circleMarker(
+                [12.97988000000699, 77.63542005000384],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_c0cd37faa903922f88509c312757ab07 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9c2da707281be3109d1ba231452751ee = $(`<div id="html_9c2da707281be3109d1ba231452751ee" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Indiranagar<br>     <b>Name:</b> Moevents/Fashon18<br>     <b>Cluster:</b> Amenity-Rich / Commercial Hub     <b>Pharmacy:</b> 27.0<br>     <b>Restaurant:</b> 112.0<br>     <b>School:</b> 33<br>     <b>Cafe:</b> 32.0<br>     <b>Hospital:</b> 20.0<br>     <b>Bank:</b> 37.0<br>     <b>Fitness Centre:</b> 9.0<br>     <b>Sports Centre:</b> 7.0     </div>`)[0];
+                popup_c0cd37faa903922f88509c312757ab07.setContent(html_9c2da707281be3109d1ba231452751ee);
+            
+        
+
+        circle_marker_3cdfd054e3932331e4487108faaf9029.bindPopup(popup_c0cd37faa903922f88509c312757ab07)
+        ;
+
+        
+    
+    
+            circle_marker_3cdfd054e3932331e4487108faaf9029.bindTooltip(
+                `<div>
+                     Indiranagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a08a7b8fc2cd0a5a66e9041306f8ef77 = L.circleMarker(
+                [12.954845677520884, 77.64771294000178],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_7b8ad5987c556d4b6e6e777f56a94404 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01bcd0d8a61e39abd450942c1397205c = $(`<div id="html_01bcd0d8a61e39abd450942c1397205c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Rustum Bagh<br>     <b>Name:</b> Block 2<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 16.0<br>     <b>Restaurant:</b> 55.0<br>     <b>School:</b> 8<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 13.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_7b8ad5987c556d4b6e6e777f56a94404.setContent(html_01bcd0d8a61e39abd450942c1397205c);
+            
+        
+
+        circle_marker_a08a7b8fc2cd0a5a66e9041306f8ef77.bindPopup(popup_7b8ad5987c556d4b6e6e777f56a94404)
+        ;
+
+        
+    
+    
+            circle_marker_a08a7b8fc2cd0a5a66e9041306f8ef77.bindTooltip(
+                `<div>
+                     Rustum Bagh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b9e009f51a20b3ac836ad65b6d9e229 = L.circleMarker(
+                [12.972140399974737, 77.61811634995478],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6f97ba8c4e83b94b036aea2b917d8369 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_25554b13ef7613737cd7f525697f3e6d = $(`<div id="html_25554b13ef7613737cd7f525697f3e6d" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Halasuru<br>     <b>Name:</b> Government Science College Boys' Hostel<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 5.0<br>     <b>Restaurant:</b> 46.0<br>     <b>School:</b> 23<br>     <b>Cafe:</b> 19.0<br>     <b>Hospital:</b> 11.0<br>     <b>Bank:</b> 37.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_6f97ba8c4e83b94b036aea2b917d8369.setContent(html_25554b13ef7613737cd7f525697f3e6d);
+            
+        
+
+        circle_marker_3b9e009f51a20b3ac836ad65b6d9e229.bindPopup(popup_6f97ba8c4e83b94b036aea2b917d8369)
+        ;
+
+        
+    
+    
+            circle_marker_3b9e009f51a20b3ac836ad65b6d9e229.bindTooltip(
+                `<div>
+                     Halasuru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a8dc150aea01c3ac1c43950c1131179 = L.circleMarker(
+                [12.995647050053078, 77.60352365004799],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_e2ddd8cb7ee5370ef15b802f96a5ee2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_172ecd375cd99be976a57dee94a7ee4e = $(`<div id="html_172ecd375cd99be976a57dee94a7ee4e" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Shivajinagar<br>     <b>Name:</b> Sweet Home Apartment<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 16.0<br>     <b>School:</b> 22<br>     <b>Cafe:</b> 7.0<br>     <b>Hospital:</b> 17.0<br>     <b>Bank:</b> 17.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_e2ddd8cb7ee5370ef15b802f96a5ee2e.setContent(html_172ecd375cd99be976a57dee94a7ee4e);
+            
+        
+
+        circle_marker_5a8dc150aea01c3ac1c43950c1131179.bindPopup(popup_e2ddd8cb7ee5370ef15b802f96a5ee2e)
+        ;
+
+        
+    
+    
+            circle_marker_5a8dc150aea01c3ac1c43950c1131179.bindTooltip(
+                `<div>
+                     Shivajinagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29f523e3f84477f0775d097beb8b3769 = L.circleMarker(
+                [13.020022224218412, 77.56614435828998],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_c025e4647b39dae01bf341de931fe79a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1fd2c99fed8bdb2b7a3f08dc7017018c = $(`<div id="html_1fd2c99fed8bdb2b7a3f08dc7017018c" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Malleswaram<br>     <b>Name:</b> Jnc President'S House<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 9.0<br>     <b>Restaurant:</b> 40.0<br>     <b>School:</b> 6<br>     <b>Cafe:</b> 11.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 9.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_c025e4647b39dae01bf341de931fe79a.setContent(html_1fd2c99fed8bdb2b7a3f08dc7017018c);
+            
+        
+
+        circle_marker_29f523e3f84477f0775d097beb8b3769.bindPopup(popup_c025e4647b39dae01bf341de931fe79a)
+        ;
+
+        
+    
+    
+            circle_marker_29f523e3f84477f0775d097beb8b3769.bindTooltip(
+                `<div>
+                     Malleswaram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2f7d0ef68d6a1740381a6a00c340be9d = L.circleMarker(
+                [13.002793095490205, 77.61485816989233],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_8acbb09423f6543563b79fb666db152d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b09d67738b45376238269c0342ad825 = $(`<div id="html_1b09d67738b45376238269c0342ad825" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Frazer Town<br>     <b>Name:</b> Plumeria<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 17.0<br>     <b>Restaurant:</b> 42.0<br>     <b>School:</b> 19<br>     <b>Cafe:</b> 11.0<br>     <b>Hospital:</b> 12.0<br>     <b>Bank:</b> 29.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_8acbb09423f6543563b79fb666db152d.setContent(html_1b09d67738b45376238269c0342ad825);
+            
+        
+
+        circle_marker_2f7d0ef68d6a1740381a6a00c340be9d.bindPopup(popup_8acbb09423f6543563b79fb666db152d)
+        ;
+
+        
+    
+    
+            circle_marker_2f7d0ef68d6a1740381a6a00c340be9d.bindTooltip(
+                `<div>
+                     Frazer Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_898ec9be0ebe7f2f567c3852a6619cb3 = L.circleMarker(
+                [13.004593799999999, 77.5669909],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_c48b9a3328af3a1c96ac1bc633535cd4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_741e0cce196f47cfd6cda82746539a01 = $(`<div id="html_741e0cce196f47cfd6cda82746539a01" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Malleswaram<br>     <b>Name:</b> Maithree Apartments<br>     <b>Cluster:</b> Amenity-Rich / Commercial Hub     <b>Pharmacy:</b> 24.0<br>     <b>Restaurant:</b> 50.0<br>     <b>School:</b> 25<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 24.0<br>     <b>Bank:</b> 55.0<br>     <b>Fitness Centre:</b> 5.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_c48b9a3328af3a1c96ac1bc633535cd4.setContent(html_741e0cce196f47cfd6cda82746539a01);
+            
+        
+
+        circle_marker_898ec9be0ebe7f2f567c3852a6619cb3.bindPopup(popup_c48b9a3328af3a1c96ac1bc633535cd4)
+        ;
+
+        
+    
+    
+            circle_marker_898ec9be0ebe7f2f567c3852a6619cb3.bindTooltip(
+                `<div>
+                     Malleswaram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f4e3b61055b00941b510d8cba72ab31 = L.circleMarker(
+                [12.979256452413692, 77.71337527487937],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_c21b73dfb24e60a8e2b44bd7b37bf0c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a417486016659ccb0a97085c5484e97 = $(`<div id="html_3a417486016659ccb0a97085c5484e97" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> EPIP Zone<br>     <b>Name:</b> Maa Nandanam<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 3.0<br>     <b>Restaurant:</b> 18.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_c21b73dfb24e60a8e2b44bd7b37bf0c0.setContent(html_3a417486016659ccb0a97085c5484e97);
+            
+        
+
+        circle_marker_4f4e3b61055b00941b510d8cba72ab31.bindPopup(popup_c21b73dfb24e60a8e2b44bd7b37bf0c0)
+        ;
+
+        
+    
+    
+            circle_marker_4f4e3b61055b00941b510d8cba72ab31.bindTooltip(
+                `<div>
+                     EPIP Zone
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f78542dd9465e78eedd38a343249881 = L.circleMarker(
+                [12.931868750005341, 77.74393034998187],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_d7f16ca9d4864e757ef67827b8661d7e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89bd77b658cf628a27c6e00e2be83027 = $(`<div id="html_89bd77b658cf628a27c6e00e2be83027" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Varthur<br>     <b>Name:</b> Candeur Signature Block 4<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 8.0<br>     <b>Restaurant:</b> 15.0<br>     <b>School:</b> 10<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_d7f16ca9d4864e757ef67827b8661d7e.setContent(html_89bd77b658cf628a27c6e00e2be83027);
+            
+        
+
+        circle_marker_7f78542dd9465e78eedd38a343249881.bindPopup(popup_d7f16ca9d4864e757ef67827b8661d7e)
+        ;
+
+        
+    
+    
+            circle_marker_7f78542dd9465e78eedd38a343249881.bindTooltip(
+                `<div>
+                     Varthur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ed092ebb75be1493aec5482be8faaee = L.circleMarker(
+                [12.999745042488556, 77.59521788769665],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_26e5ba8d3c616be8e0ea359452cb422f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_089b1aab9070f6125914676749aae002 = $(`<div id="html_089b1aab9070f6125914676749aae002" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Vasanth Nagar<br>     <b>Name:</b> Maddox Edge<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 1.0<br>     <b>Restaurant:</b> 10.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 7.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 12.0<br>     <b>Fitness Centre:</b> 2.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_26e5ba8d3c616be8e0ea359452cb422f.setContent(html_089b1aab9070f6125914676749aae002);
+            
+        
+
+        circle_marker_6ed092ebb75be1493aec5482be8faaee.bindPopup(popup_26e5ba8d3c616be8e0ea359452cb422f)
+        ;
+
+        
+    
+    
+            circle_marker_6ed092ebb75be1493aec5482be8faaee.bindTooltip(
+                `<div>
+                     Vasanth Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1050033c9e77b6b53c01437f132b66db = L.circleMarker(
+                [12.900434223535056, 77.66525306213485],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_53b04258d363869b4121a37a6a3b783a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b784e1c23ead4341b94bb2d9648fcbe1 = $(`<div id="html_b784e1c23ead4341b94bb2d9648fcbe1" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Haralur<br>     <b>Name:</b> Tower 20<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 1.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_53b04258d363869b4121a37a6a3b783a.setContent(html_b784e1c23ead4341b94bb2d9648fcbe1);
+            
+        
+
+        circle_marker_1050033c9e77b6b53c01437f132b66db.bindPopup(popup_53b04258d363869b4121a37a6a3b783a)
+        ;
+
+        
+    
+    
+            circle_marker_1050033c9e77b6b53c01437f132b66db.bindTooltip(
+                `<div>
+                     Haralur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a1df320ffbf626c5bb47d11f6fff57b = L.circleMarker(
+                [12.92985600000442, 77.48535649999233],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_a3a1cbf185b848d8257ffd67fd09986e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5e3367c5c4dcd2464c664e8d41d70497 = $(`<div id="html_5e3367c5c4dcd2464c664e8d41d70497" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Kengeri<br>     <b>Name:</b> Bilad Laurel<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 2.0<br>     <b>School:</b> 7<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 4.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_a3a1cbf185b848d8257ffd67fd09986e.setContent(html_5e3367c5c4dcd2464c664e8d41d70497);
+            
+        
+
+        circle_marker_5a1df320ffbf626c5bb47d11f6fff57b.bindPopup(popup_a3a1cbf185b848d8257ffd67fd09986e)
+        ;
+
+        
+    
+    
+            circle_marker_5a1df320ffbf626c5bb47d11f6fff57b.bindTooltip(
+                `<div>
+                     Kengeri
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f04a25fc8d90eb58c9a7479fa780f82 = L.circleMarker(
+                [13.122866458845253, 77.62076937073279],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6012fd81699ed55fab32b9075f653de5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72630d1c8280a772eeda6fab09414ff4 = $(`<div id="html_72630d1c8280a772eeda6fab09414ff4" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Dwaraka Nagar<br>     <b>Name:</b> Nitesh Columbus Square Apartments<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 6.0<br>     <b>School:</b> 3<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_6012fd81699ed55fab32b9075f653de5.setContent(html_72630d1c8280a772eeda6fab09414ff4);
+            
+        
+
+        circle_marker_4f04a25fc8d90eb58c9a7479fa780f82.bindPopup(popup_6012fd81699ed55fab32b9075f653de5)
+        ;
+
+        
+    
+    
+            circle_marker_4f04a25fc8d90eb58c9a7479fa780f82.bindTooltip(
+                `<div>
+                     Dwaraka Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3bd16d8efd9788c827f6299ea846aee4 = L.circleMarker(
+                [13.08034163341847, 77.64024911634388],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_6e093fa8b749dc43e7b2f6e6fb8c94a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52a5af8706b73788845252eb86968043 = $(`<div id="html_52a5af8706b73788845252eb86968043" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Bhartiya City<br>     <b>Name:</b> Tower F<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 0.0<br>     <b>Restaurant:</b> 5.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 2.0<br>     <b>Hospital:</b> 2.0<br>     <b>Bank:</b> 0.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 2.0     </div>`)[0];
+                popup_6e093fa8b749dc43e7b2f6e6fb8c94a0.setContent(html_52a5af8706b73788845252eb86968043);
+            
+        
+
+        circle_marker_3bd16d8efd9788c827f6299ea846aee4.bindPopup(popup_6e093fa8b749dc43e7b2f6e6fb8c94a0)
+        ;
+
+        
+    
+    
+            circle_marker_3bd16d8efd9788c827f6299ea846aee4.bindTooltip(
+                `<div>
+                     Bhartiya City
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e000459411e45d1a918ad1f27b07fee = L.circleMarker(
+                [12.929669250007967, 77.48505730000636],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_ecb4a9886f63f342b08a0788b50f00d8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae26b6297487c3fbf284c35c72c1d7b2 = $(`<div id="html_ae26b6297487c3fbf284c35c72c1d7b2" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Kengeri<br>     <b>Name:</b> Pioneer Lake View<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 2.0<br>     <b>Restaurant:</b> 2.0<br>     <b>School:</b> 4<br>     <b>Cafe:</b> 1.0<br>     <b>Hospital:</b> 5.0<br>     <b>Bank:</b> 2.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_ecb4a9886f63f342b08a0788b50f00d8.setContent(html_ae26b6297487c3fbf284c35c72c1d7b2);
+            
+        
+
+        circle_marker_5e000459411e45d1a918ad1f27b07fee.bindPopup(popup_ecb4a9886f63f342b08a0788b50f00d8)
+        ;
+
+        
+    
+    
+            circle_marker_5e000459411e45d1a918ad1f27b07fee.bindTooltip(
+                `<div>
+                     Kengeri
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3f5ecdfb512b9869787afea4eb9cb6b = L.circleMarker(
+                [12.95152231145287, 77.57015049938083],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_a9b12e9fa6e281cda897d1a3ee3d2c35 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3cf44af0e0ea8c5a8e3350556a412fad = $(`<div id="html_3cf44af0e0ea8c5a8e3350556a412fad" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Chamarajapete<br>     <b>Name:</b> Adarsh Manor<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 47.0<br>     <b>School:</b> 30<br>     <b>Cafe:</b> 6.0<br>     <b>Hospital:</b> 21.0<br>     <b>Bank:</b> 35.0<br>     <b>Fitness Centre:</b> 7.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_a9b12e9fa6e281cda897d1a3ee3d2c35.setContent(html_3cf44af0e0ea8c5a8e3350556a412fad);
+            
+        
+
+        circle_marker_c3f5ecdfb512b9869787afea4eb9cb6b.bindPopup(popup_a9b12e9fa6e281cda897d1a3ee3d2c35)
+        ;
+
+        
+    
+    
+            circle_marker_c3f5ecdfb512b9869787afea4eb9cb6b.bindTooltip(
+                `<div>
+                     Chamarajapete
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4b17e578145a7a987397092fd6433751 = L.circleMarker(
+                [12.97445154999818, 77.64070695000034],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_e10d152720da49982cb5b12ab3a5941d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_977cc04c2a51c77e0f0fdf2e1ae0d540 = $(`<div id="html_977cc04c2a51c77e0f0fdf2e1ae0d540" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Indiranagar<br>     <b>Name:</b> Moodera<br>     <b>Cluster:</b> Amenity-Rich / Commercial Hub     <b>Pharmacy:</b> 37.0<br>     <b>Restaurant:</b> 209.0<br>     <b>School:</b> 26<br>     <b>Cafe:</b> 77.0<br>     <b>Hospital:</b> 29.0<br>     <b>Bank:</b> 61.0<br>     <b>Fitness Centre:</b> 13.0<br>     <b>Sports Centre:</b> 8.0     </div>`)[0];
+                popup_e10d152720da49982cb5b12ab3a5941d.setContent(html_977cc04c2a51c77e0f0fdf2e1ae0d540);
+            
+        
+
+        circle_marker_4b17e578145a7a987397092fd6433751.bindPopup(popup_e10d152720da49982cb5b12ab3a5941d)
+        ;
+
+        
+    
+    
+            circle_marker_4b17e578145a7a987397092fd6433751.bindTooltip(
+                `<div>
+                     Indiranagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45f0b1fb7ad28ab564bcfe6a041e8232 = L.circleMarker(
+                [13.107798582779527, 77.58000797301654],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_cebdef09be2e2c5592711fd4fda69844 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3222debaf566ef3bf0bdfc85d4e8823a = $(`<div id="html_3222debaf566ef3bf0bdfc85d4e8823a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> 1st Cross Road<br>     <b>Name:</b> Blue Bell<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 9.0<br>     <b>Restaurant:</b> 21.0<br>     <b>School:</b> 8<br>     <b>Cafe:</b> 10.0<br>     <b>Hospital:</b> 12.0<br>     <b>Bank:</b> 13.0<br>     <b>Fitness Centre:</b> 0.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_cebdef09be2e2c5592711fd4fda69844.setContent(html_3222debaf566ef3bf0bdfc85d4e8823a);
+            
+        
+
+        circle_marker_45f0b1fb7ad28ab564bcfe6a041e8232.bindPopup(popup_cebdef09be2e2c5592711fd4fda69844)
+        ;
+
+        
+    
+    
+            circle_marker_45f0b1fb7ad28ab564bcfe6a041e8232.bindTooltip(
+                `<div>
+                     1st Cross Road
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e9d0e596e52eb7b0c37a2d400b8845e2 = L.circleMarker(
+                [12.969669328740475, 77.66962698843263],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_1a298ea1fa6fc5fe7272fa348a5f3c99 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02eca331c678c4a1a6eed0107b480849 = $(`<div id="html_02eca331c678c4a1a6eed0107b480849" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lal Bahadur Shastri Nagar<br>     <b>Name:</b> Block A<br>     <b>Cluster:</b> Residential / Low Amenities     <b>Pharmacy:</b> 4.0<br>     <b>Restaurant:</b> 5.0<br>     <b>School:</b> 9<br>     <b>Cafe:</b> 0.0<br>     <b>Hospital:</b> 4.0<br>     <b>Bank:</b> 1.0<br>     <b>Fitness Centre:</b> 1.0<br>     <b>Sports Centre:</b> 4.0     </div>`)[0];
+                popup_1a298ea1fa6fc5fe7272fa348a5f3c99.setContent(html_02eca331c678c4a1a6eed0107b480849);
+            
+        
+
+        circle_marker_e9d0e596e52eb7b0c37a2d400b8845e2.bindPopup(popup_1a298ea1fa6fc5fe7272fa348a5f3c99)
+        ;
+
+        
+    
+    
+            circle_marker_e9d0e596e52eb7b0c37a2d400b8845e2.bindTooltip(
+                `<div>
+                     Lal Bahadur Shastri Nagar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_193c93a56c9b956ae9e402f7a99d2dfe = L.circleMarker(
+                [13.004596271091762, 77.62327421098806],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_b531a121d291e216bf78ef2f4f48ad03 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_321a6a24fa15fc85bc98b57ed36441bb = $(`<div id="html_321a6a24fa15fc85bc98b57ed36441bb" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> East Villa<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 19.0<br>     <b>Restaurant:</b> 26.0<br>     <b>School:</b> 12<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 7.0<br>     <b>Bank:</b> 19.0<br>     <b>Fitness Centre:</b> 3.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_b531a121d291e216bf78ef2f4f48ad03.setContent(html_321a6a24fa15fc85bc98b57ed36441bb);
+            
+        
+
+        circle_marker_193c93a56c9b956ae9e402f7a99d2dfe.bindPopup(popup_b531a121d291e216bf78ef2f4f48ad03)
+        ;
+
+        
+    
+    
+            circle_marker_193c93a56c9b956ae9e402f7a99d2dfe.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b53b3579df78cc363ece2f860b72708f = L.circleMarker(
+                [12.92660615002651, 77.6646597000097],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_57ca5f8deec73d56574331afbe35052b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4b882eae21a255d09e50260e0dc87e8a = $(`<div id="html_4b882eae21a255d09e50260e0dc87e8a" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Iblur<br>     <b>Name:</b> Treasure<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 8.0<br>     <b>Restaurant:</b> 26.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 9.0<br>     <b>Hospital:</b> 8.0<br>     <b>Bank:</b> 15.0<br>     <b>Fitness Centre:</b> 5.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_57ca5f8deec73d56574331afbe35052b.setContent(html_4b882eae21a255d09e50260e0dc87e8a);
+            
+        
+
+        circle_marker_b53b3579df78cc363ece2f860b72708f.bindPopup(popup_57ca5f8deec73d56574331afbe35052b)
+        ;
+
+        
+    
+    
+            circle_marker_b53b3579df78cc363ece2f860b72708f.bindTooltip(
+                `<div>
+                     Iblur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4bcca4b1cde6c66b98da0c6b33c9a388 = L.circleMarker(
+                [12.926335443980285, 77.66810583424369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_929585c4ef86b83abaa1d9b699a318d4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ba19ee2b02c2b572070e2fc3928a56aa = $(`<div id="html_ba19ee2b02c2b572070e2fc3928a56aa" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Sobha Jasmine<br>     <b>Name:</b> Block 3<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 8.0<br>     <b>Restaurant:</b> 40.0<br>     <b>School:</b> 5<br>     <b>Cafe:</b> 11.0<br>     <b>Hospital:</b> 11.0<br>     <b>Bank:</b> 18.0<br>     <b>Fitness Centre:</b> 8.0<br>     <b>Sports Centre:</b> 5.0     </div>`)[0];
+                popup_929585c4ef86b83abaa1d9b699a318d4.setContent(html_ba19ee2b02c2b572070e2fc3928a56aa);
+            
+        
+
+        circle_marker_4bcca4b1cde6c66b98da0c6b33c9a388.bindPopup(popup_929585c4ef86b83abaa1d9b699a318d4)
+        ;
+
+        
+    
+    
+            circle_marker_4bcca4b1cde6c66b98da0c6b33c9a388.bindTooltip(
+                `<div>
+                     Sobha Jasmine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7000bad7c972cdfe55b958218efb6d1c = L.circleMarker(
+                [13.000053149998827, 77.62335539999182],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_98a82fbacdc3016437755b43ebeada40 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a6126bff484e9303cf216f40511a543 = $(`<div id="html_6a6126bff484e9303cf216f40511a543" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Frazer Town<br>     <b>Name:</b> Sree Balaji Nilaya<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 20.0<br>     <b>Restaurant:</b> 31.0<br>     <b>School:</b> 17<br>     <b>Cafe:</b> 14.0<br>     <b>Hospital:</b> 6.0<br>     <b>Bank:</b> 24.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_98a82fbacdc3016437755b43ebeada40.setContent(html_6a6126bff484e9303cf216f40511a543);
+            
+        
+
+        circle_marker_7000bad7c972cdfe55b958218efb6d1c.bindPopup(popup_98a82fbacdc3016437755b43ebeada40)
+        ;
+
+        
+    
+    
+            circle_marker_7000bad7c972cdfe55b958218efb6d1c.bindTooltip(
+                `<div>
+                     Frazer Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_90a7afea58e9a5841c2242876f305df0 = L.circleMarker(
+                [12.958142138890423, 77.60401067475043],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_2328c45aa10608284d03f6f8ae607245 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c5bff15053889cf5863fa7e0ff117a4 = $(`<div id="html_1c5bff15053889cf5863fa7e0ff117a4" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Richmond Town<br>     <b>Name:</b> Landmark<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 10.0<br>     <b>Restaurant:</b> 17.0<br>     <b>School:</b> 34<br>     <b>Cafe:</b> 11.0<br>     <b>Hospital:</b> 10.0<br>     <b>Bank:</b> 20.0<br>     <b>Fitness Centre:</b> 3.0<br>     <b>Sports Centre:</b> 4.0     </div>`)[0];
+                popup_2328c45aa10608284d03f6f8ae607245.setContent(html_1c5bff15053889cf5863fa7e0ff117a4);
+            
+        
+
+        circle_marker_90a7afea58e9a5841c2242876f305df0.bindPopup(popup_2328c45aa10608284d03f6f8ae607245)
+        ;
+
+        
+    
+    
+            circle_marker_90a7afea58e9a5841c2242876f305df0.bindTooltip(
+                `<div>
+                     Richmond Town
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_01a165b59c96516266fbd365858ba706 = L.circleMarker(
+                [12.95940810497746, 77.5690291991369],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_c3cafc79934bb895bff43ecd44bd689e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d0a3e2489b550e5a7e266317a061b61b = $(`<div id="html_d0a3e2489b550e5a7e266317a061b61b" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Chamarajapete<br>     <b>Name:</b> Gopalan Pushpanjali<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 7.0<br>     <b>Restaurant:</b> 12.0<br>     <b>School:</b> 20<br>     <b>Cafe:</b> 3.0<br>     <b>Hospital:</b> 23.0<br>     <b>Bank:</b> 17.0<br>     <b>Fitness Centre:</b> 4.0<br>     <b>Sports Centre:</b> 3.0     </div>`)[0];
+                popup_c3cafc79934bb895bff43ecd44bd689e.setContent(html_d0a3e2489b550e5a7e266317a061b61b);
+            
+        
+
+        circle_marker_01a165b59c96516266fbd365858ba706.bindPopup(popup_c3cafc79934bb895bff43ecd44bd689e)
+        ;
+
+        
+    
+    
+            circle_marker_01a165b59c96516266fbd365858ba706.bindTooltip(
+                `<div>
+                     Chamarajapete
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b12d9ffe59002a2bd86efa20da5cc2f = L.circleMarker(
+                [13.00454405000195, 77.6224577499828],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_8245908eb4c528a1677d81fa6a6c21c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa02ef1b0b62b5429b5ba2e776c11792 = $(`<div id="html_fa02ef1b0b62b5429b5ba2e776c11792" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Lingarajapuram<br>     <b>Name:</b> Ashley House<br>     <b>Cluster:</b> Urban Residential / Leisure Focused     <b>Pharmacy:</b> 18.0<br>     <b>Restaurant:</b> 30.0<br>     <b>School:</b> 13<br>     <b>Cafe:</b> 12.0<br>     <b>Hospital:</b> 8.0<br>     <b>Bank:</b> 21.0<br>     <b>Fitness Centre:</b> 6.0<br>     <b>Sports Centre:</b> 6.0     </div>`)[0];
+                popup_8245908eb4c528a1677d81fa6a6c21c9.setContent(html_fa02ef1b0b62b5429b5ba2e776c11792);
+            
+        
+
+        circle_marker_6b12d9ffe59002a2bd86efa20da5cc2f.bindPopup(popup_8245908eb4c528a1677d81fa6a6c21c9)
+        ;
+
+        
+    
+    
+            circle_marker_6b12d9ffe59002a2bd86efa20da5cc2f.bindTooltip(
+                `<div>
+                     Lingarajapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9614c1e4f1d2c47a6709e55d87f9794d = L.circleMarker(
+                [12.973384724518466, 77.74765661479061],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_f47a49381cd6490a1e063d693b94acec);
+        
+    
+        var popup_aa4babd74038cbb192d2bc77b30f6bdd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d72487d106d4852d58ea89784e77cd5 = $(`<div id="html_3d72487d106d4852d58ea89784e77cd5" style="width: 100.0%; height: 100.0%;">     <b>Place:</b> Whitefield<br>     <b>Name:</b> Lavyuk'S Cattleya Orchids<br>     <b>Cluster:</b> Mixed Residential / Institutional     <b>Pharmacy:</b> 6.0<br>     <b>Restaurant:</b> 13.0<br>     <b>School:</b> 16<br>     <b>Cafe:</b> 4.0<br>     <b>Hospital:</b> 3.0<br>     <b>Bank:</b> 9.0<br>     <b>Fitness Centre:</b> 9.0<br>     <b>Sports Centre:</b> 1.0     </div>`)[0];
+                popup_aa4babd74038cbb192d2bc77b30f6bdd.setContent(html_3d72487d106d4852d58ea89784e77cd5);
+            
+        
+
+        circle_marker_9614c1e4f1d2c47a6709e55d87f9794d.bindPopup(popup_aa4babd74038cbb192d2bc77b30f6bdd)
+        ;
+
+        
+    
+    
+            circle_marker_9614c1e4f1d2c47a6709e55d87f9794d.bindTooltip(
+                `<div>
+                     Whitefield
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_f47a49381cd6490a1e063d693b94acec.addTo(map_3d1decc67762de1ea2c7ae3ddbe1f7b1);
+        
+    
+            var layer_control_4364be3ccd78be27e94414a18787ae15_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_5ad42bdf10704bb1a534518b939853fe,
+                    "stamenterrain" : tile_layer_099e831fbf86b7149ebf3674c43d8049,
+                    "stamentoner" : tile_layer_4190d5f6a9bf00063f03c875dccac761,
+                    "cartodbpositron" : tile_layer_592f7d266b89269967645540fb5ebdf5,
+                },
+                overlays :  {
+                    "macro_element_f47a49381cd6490a1e063d693b94acec" : marker_cluster_f47a49381cd6490a1e063d693b94acec,
+                },
+            };
+            let layer_control_4364be3ccd78be27e94414a18787ae15 = L.control.layers(
+                layer_control_4364be3ccd78be27e94414a18787ae15_layers.base_layers,
+                layer_control_4364be3ccd78be27e94414a18787ae15_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_3d1decc67762de1ea2c7ae3ddbe1f7b1);
+
+        
+</script>
+</html>

@@ -1,0 +1,107 @@
+,lat,lon,name,place_name,amenity_pharmacy,amenity_restaurant,amenity_school,amenity_cafe,amenity_hospital,amenity_bank,leisure_fitness_centre,leisure_sports_centre,cluster,cluster_label
+0,13.032046422453332,77.60950561346421,Shanthi Nikethan,Sulthanpalya,13.0,5.0,12,3.0,5.0,1.0,1.0,4.0,0,Residential / Low Amenities
+1,12.927120623003566,77.68645249623852,Vijayasri Golden Orchid,Bellanduru,3.0,46.0,1,13.0,1.0,4.0,1.0,6.0,0,Residential / Low Amenities
+2,12.90190651053383,77.59030258944412,Mahaveer Springs,JP Nagar,15.0,68.0,18,21.0,10.0,21.0,10.0,7.0,3,Urban Residential / Leisure Focused
+3,12.917767124093922,77.6892306572715,Jasmine Tower-5 Block V,Doddakannalli,1.0,45.0,5,15.0,3.0,4.0,2.0,2.0,0,Residential / Low Amenities
+4,12.925522324761646,77.66946383649613,Dsr Regency,Green Glen Layout,8.0,46.0,6,12.0,11.0,19.0,8.0,6.0,3,Urban Residential / Leisure Focused
+5,12.978223824937599,77.68407313938918,Diya Constructions,Abbaiah Reddy Layout,9.0,20.0,9,1.0,5.0,6.0,4.0,5.0,0,Residential / Low Amenities
+6,12.933162334296492,77.50531306898013,Research Scholars' Hostel,Rajarajeshwari Nagar,0.0,3.0,5,2.0,1.0,0.0,0.0,1.0,0,Residential / Low Amenities
+7,13.0044084139944,77.62197835809216,North Star,Lingarajapuram,19.0,34.0,14,12.0,9.0,21.0,6.0,6.0,3,Urban Residential / Leisure Focused
+8,13.064071124017401,77.63876432284955,Block-C,Golden Palms Apartments,6.0,8.0,9,7.0,3.0,5.0,0.0,3.0,0,Residential / Low Amenities
+9,12.916847212376307,77.69774259495281,Shakti 80 Trees,Doddakannalli,5.0,5.0,5,1.0,1.0,2.0,1.0,0.0,0,Residential / Low Amenities
+10,13.00357164365799,77.62132716807069,Pearl House,Lingarajapuram,18.0,36.0,16,14.0,9.0,23.0,7.0,6.0,3,Urban Residential / Leisure Focused
+11,12.904281919362385,77.6855282240395,257,Doddakannalli,3.0,13.0,5,9.0,6.0,7.0,1.0,2.0,0,Residential / Low Amenities
+12,12.957701074586836,77.72113421466139,Bellmount Residency,BEML Layout 6th Stage,29.0,73.0,13,34.0,9.0,15.0,17.0,10.0,3,Urban Residential / Leisure Focused
+13,13.066282540441971,77.55496592699814,Ashirwad,Vidyaranyapura,6.0,2.0,10,5.0,1.0,7.0,1.0,2.0,0,Residential / Low Amenities
+14,12.94376563654257,77.687892154,I5,Marathahalli,2.0,25.0,5,5.0,0.0,4.0,2.0,2.0,0,Residential / Low Amenities
+15,12.957524566278055,77.57516372890028,Bmc Driver'S Quarters,Chamarajapete,5.0,21.0,20,2.0,25.0,31.0,5.0,2.0,2,Mixed Residential / Institutional
+16,12.931581850856604,77.69602255088846,Oak 1,Panathur,3.0,27.0,8,6.0,1.0,3.0,2.0,8.0,0,Residential / Low Amenities
+17,12.899821159506104,77.67564527547437,Kristal Jasper,Haralur,4.0,5.0,6,2.0,2.0,3.0,1.0,3.0,0,Residential / Low Amenities
+18,12.965186623844046,77.60496514286322,Skyline Olympia,Richmond Town,14.0,110.0,36,49.0,9.0,49.0,6.0,7.0,1,Amenity-Rich / Commercial Hub
+19,12.96484699615927,77.64004672047915,Mln Raos,Indiranagar,29.0,150.0,22,50.0,17.0,37.0,11.0,6.0,1,Amenity-Rich / Commercial Hub
+20,13.004526450001698,77.62653315000124,Shakuntala Nivas,Lingarajapuram,18.0,14.0,6,8.0,5.0,16.0,2.0,6.0,3,Urban Residential / Leisure Focused
+21,13.072472418773637,77.62644543725104,Aniket Nilayam,Arkavathy Layout,0.0,3.0,7,0.0,1.0,5.0,0.0,2.0,0,Residential / Low Amenities
+22,12.991982699998331,77.66113574998697,Sv Serinity,C V Raman Nagar,6.0,16.0,4,2.0,2.0,9.0,0.0,0.0,0,Residential / Low Amenities
+23,12.906715549999623,77.63952279999957,911G,HSR Layout,7.0,66.0,18,33.0,7.0,15.0,4.0,8.0,3,Urban Residential / Leisure Focused
+24,12.999095656751662,77.62369733146055,Marko Villa,Frazer Town,19.0,29.0,15,14.0,7.0,24.0,3.0,6.0,3,Urban Residential / Leisure Focused
+25,12.917891700073724,77.67275243426405,Divyashree Elan - 1A,Haralur,10.0,55.0,7,24.0,19.0,28.0,7.0,4.0,3,Urban Residential / Leisure Focused
+26,12.948662538141212,77.69324378434456,Tower C,Marathahalli,11.0,72.0,3,3.0,4.0,10.0,1.0,8.0,3,Urban Residential / Leisure Focused
+27,13.050631757199147,77.5956613759827,Tower 9,Hebbal,7.0,41.0,9,5.0,5.0,6.0,1.0,5.0,0,Residential / Low Amenities
+28,13.003469038995805,77.62328258366549,Samrat,Lingarajapuram,21.0,31.0,13,14.0,7.0,22.0,4.0,6.0,3,Urban Residential / Leisure Focused
+29,12.863477574540092,77.53678481163949,Tower 7,Judicial Layout Phase II,4.0,7.0,6,2.0,0.0,2.0,0.0,1.0,0,Residential / Low Amenities
+30,12.907598950003244,77.5527782499994,Niveditha Apartments,Uttarahalli,6.0,8.0,9,2.0,5.0,11.0,1.0,0.0,0,Residential / Low Amenities
+31,13.014388174401956,77.57922935584158,Ranka Enclave,Sadashivanagar,7.0,19.0,9,13.0,5.0,17.0,2.0,3.0,0,Residential / Low Amenities
+32,12.866154345396437,77.58037497511613,Radiant Elitaire,Gottigere,0.0,3.0,10,0.0,1.0,2.0,2.0,1.0,0,Residential / Low Amenities
+33,12.980663100063607,77.69532610004387,Vrr Elegance,Bengaluru,5.0,29.0,4,3.0,3.0,4.0,2.0,5.0,0,Residential / Low Amenities
+34,12.9975030245557,77.5834248567851,Fascinate Manor,Vasanth Nagar,9.0,28.0,11,10.0,7.0,26.0,4.0,1.0,2,Mixed Residential / Institutional
+35,12.998772868172658,77.62292535160839,Laxmi Nivas,Lingarajapuram,19.0,34.0,19,14.0,5.0,24.0,6.0,6.0,3,Urban Residential / Leisure Focused
+36,12.991426685726385,77.70168302117307,A Block,Mahadevapura,2.0,19.0,4,9.0,3.0,6.0,2.0,4.0,0,Residential / Low Amenities
+37,12.918021113418606,77.67385782584381,Pratle - 1E,Haralur,9.0,57.0,6,25.0,18.0,29.0,8.0,3.0,3,Urban Residential / Leisure Focused
+38,12.999064150012787,77.62298985001134,Gp Nest,Lingarajapuram,20.0,34.0,19,14.0,6.0,25.0,6.0,6.0,3,Urban Residential / Leisure Focused
+39,12.907048897184477,77.6788196139563,Vaishanavi Orchid,Junnasandra,6.0,24.0,3,13.0,10.0,14.0,3.0,7.0,3,Urban Residential / Leisure Focused
+40,12.916406015800488,77.69667244141577,Block-J,Doddakannalli,6.0,8.0,6,1.0,0.0,2.0,1.0,0.0,0,Residential / Low Amenities
+41,12.927888582415328,77.6990415301339,G-2,Panathur,2.0,11.0,6,4.0,1.0,2.0,1.0,5.0,0,Residential / Low Amenities
+42,12.995590313535862,77.73100072361363,Tower 14,Hoodi,0.0,22.0,1,6.0,5.0,1.0,1.0,3.0,0,Residential / Low Amenities
+43,12.991321471712261,77.61593352742351,Redifice Arlington Promenade,Frazer Town,11.0,48.0,24,14.0,13.0,26.0,7.0,6.0,3,Urban Residential / Leisure Focused
+44,12.94783284163635,77.7174739112004,F,Balagere,14.0,41.0,7,11.0,6.0,7.0,4.0,6.0,3,Urban Residential / Leisure Focused
+45,12.967199897322494,77.7502250509079,A Block,Whitefield,7.0,25.0,16,10.0,6.0,12.0,7.0,2.0,2,Mixed Residential / Institutional
+46,12.972801592259996,77.6404885253705,Vars Magnolia,Indiranagar,35.0,206.0,28,72.0,27.0,58.0,15.0,9.0,1,Amenity-Rich / Commercial Hub
+47,12.9082093737648,77.64150726541996,Veena,HSR Layout,14.0,82.0,20,40.0,13.0,19.0,8.0,7.0,3,Urban Residential / Leisure Focused
+48,12.955271979233123,77.64804186604266,Block 20,Rustum Bagh,15.0,55.0,9,10.0,11.0,14.0,1.0,8.0,3,Urban Residential / Leisure Focused
+49,12.99903039336023,77.62381771853913,Padua,Frazer Town,19.0,30.0,14,14.0,6.0,24.0,3.0,6.0,3,Urban Residential / Leisure Focused
+50,13.004639242679193,77.62145612151356,Modi Pride,Lingarajapuram,19.0,33.0,14,12.0,9.0,20.0,6.0,6.0,3,Urban Residential / Leisure Focused
+51,12.982855510577687,77.72140281331733,Circular Apartment-1,EPIP Zone,6.0,33.0,7,11.0,5.0,7.0,1.0,5.0,0,Residential / Low Amenities
+52,12.966256933980132,77.7168731186791,Parimala Archid,EPIP Zone,27.0,52.0,12,32.0,8.0,9.0,16.0,7.0,3,Urban Residential / Leisure Focused
+53,12.861052749785625,77.53003455086903,Tower 2,Kanakapura Road,0.0,3.0,3,0.0,0.0,0.0,0.0,0.0,0,Residential / Low Amenities
+54,13.11675088520767,77.57692465899572,Phase 2,Isaac Layout,0.0,4.0,1,0.0,3.0,0.0,0.0,0.0,0,Residential / Low Amenities
+55,12.965615447554312,77.7256366684076,Tower J,Shriram Samskruti Apartments,16.0,29.0,8,14.0,2.0,0.0,6.0,4.0,3,Urban Residential / Leisure Focused
+56,13.03652617912713,77.6655826374295,Sri Gayathri Prime,Horamavu,5.0,5.0,10,0.0,3.0,1.0,1.0,0.0,0,Residential / Low Amenities
+57,12.974502850045607,77.62487799997187,Bhadra Landmark,Halasuru,10.0,30.0,20,9.0,13.0,19.0,3.0,1.0,2,Mixed Residential / Institutional
+58,13.037302669311508,77.59738305595573,Meridian Garden,Hebbal,2.0,8.0,7,1.0,3.0,3.0,0.0,1.0,0,Residential / Low Amenities
+59,12.920154624068497,77.69499297697257,C2,Doddakannalli,4.0,16.0,2,4.0,0.0,1.0,1.0,5.0,0,Residential / Low Amenities
+60,12.925520043545932,77.67273552806755,Feb 30 Marigold Coliving Pg,Bellanduru,8.0,47.0,4,13.0,10.0,18.0,8.0,6.0,3,Urban Residential / Leisure Focused
+61,12.899607900000001,77.621306,Block B,Hongasandra,9.0,8.0,22,1.0,10.0,2.0,0.0,1.0,2,Mixed Residential / Institutional
+62,12.920952500017764,77.53709205000635,Elana,The Promont,1.0,4.0,4,2.0,2.0,0.0,0.0,1.0,0,Residential / Low Amenities
+63,12.899038857107639,77.65319137760434,Nd Sepal D Block,Kudlu,7.0,6.0,7,4.0,2.0,3.0,2.0,0.0,0,Residential / Low Amenities
+64,12.89819354397367,77.6739373681483,Sathya Nilayam,Haralur,2.0,4.0,6,1.0,1.0,1.0,1.0,1.0,0,Residential / Low Amenities
+65,12.917200429387224,77.68990285581566,Maple Tower-5 Block T,Doddakannalli,5.0,43.0,5,14.0,3.0,4.0,2.0,2.0,0,Residential / Low Amenities
+66,12.93219316049888,77.7457326081077,Tower B,Varthur,6.0,14.0,8,4.0,3.0,1.0,1.0,1.0,0,Residential / Low Amenities
+67,12.902360594219138,77.66278222966089,Tower 1,Haralur,3.0,1.0,4,1.0,2.0,1.0,1.0,1.0,0,Residential / Low Amenities
+68,12.9650771499952,77.53231099999685,Sapthagiri Nilaya,Vijaya Nagar,21.0,41.0,12,9.0,30.0,25.0,2.0,8.0,3,Urban Residential / Leisure Focused
+69,12.933396399964742,77.70410589848088,N M Vihar,Panathur,2.0,22.0,6,2.0,1.0,2.0,1.0,5.0,0,Residential / Low Amenities
+70,12.927520150015498,77.67249195000906,Kaveri Residency,Bellanduru,8.0,43.0,4,12.0,8.0,17.0,7.0,5.0,3,Urban Residential / Leisure Focused
+71,12.921187236511395,77.49271473406144,Block D-E,Kengeri,2.0,7.0,8,3.0,3.0,2.0,0.0,1.0,0,Residential / Low Amenities
+72,12.864245353816845,77.61146534993753,Tower 15,Beguru,1.0,0.0,5,2.0,0.0,0.0,0.0,0.0,0,Residential / Low Amenities
+73,12.929879365749878,77.66981557864057,Block 6,Bellanduru,5.0,36.0,4,10.0,7.0,17.0,7.0,6.0,3,Urban Residential / Leisure Focused
+74,13.001953900009962,77.62105085000832,Little Flower,Frazer Town,18.0,40.0,22,14.0,9.0,25.0,7.0,6.0,3,Urban Residential / Leisure Focused
+75,12.95908935000933,77.72121895000377,Sai Enclave,BEML Layout 6th Stage,32.0,76.0,12,37.0,10.0,15.0,17.0,10.0,3,Urban Residential / Leisure Focused
+76,13.000588100002869,77.62478239999297,High Gates,Lingarajapuram,18.0,25.0,10,13.0,6.0,21.0,2.0,5.0,3,Urban Residential / Leisure Focused
+77,12.933260785695142,77.70317507389414,Block 2,Panathur,2.0,27.0,6,2.0,1.0,3.0,1.0,5.0,0,Residential / Low Amenities
+78,13.00430725425028,77.62011464515938,Marble Arch Apartments,Lingarajapuram,16.0,37.0,16,12.0,10.0,24.0,6.0,6.0,3,Urban Residential / Leisure Focused
+79,12.97988000000699,77.63542005000384,Moevents/Fashon18,Indiranagar,27.0,112.0,33,32.0,20.0,37.0,9.0,7.0,1,Amenity-Rich / Commercial Hub
+80,12.954845677520884,77.64771294000178,Block 2,Rustum Bagh,16.0,55.0,8,10.0,10.0,13.0,1.0,8.0,3,Urban Residential / Leisure Focused
+81,12.972140399974737,77.61811634995478,Government Science College Boys' Hostel,Halasuru,5.0,46.0,23,19.0,11.0,37.0,2.0,1.0,2,Mixed Residential / Institutional
+82,12.995647050053078,77.60352365004799,Sweet Home Apartment,Shivajinagar,7.0,16.0,22,7.0,17.0,17.0,0.0,3.0,2,Mixed Residential / Institutional
+83,13.020022224218412,77.56614435828998,Jnc President'S House,Malleswaram,9.0,40.0,6,11.0,7.0,9.0,0.0,1.0,0,Residential / Low Amenities
+84,13.002793095490205,77.61485816989233,Plumeria,Frazer Town,17.0,42.0,19,11.0,12.0,29.0,7.0,5.0,3,Urban Residential / Leisure Focused
+85,13.004593799999999,77.5669909,Maithree Apartments,Malleswaram,24.0,50.0,25,12.0,24.0,55.0,5.0,8.0,1,Amenity-Rich / Commercial Hub
+86,12.979256452413692,77.71337527487937,Maa Nandanam,EPIP Zone,3.0,18.0,9,10.0,2.0,1.0,2.0,5.0,0,Residential / Low Amenities
+87,12.931868750005341,77.74393034998187,Candeur Signature Block 4,Varthur,8.0,15.0,10,4.0,3.0,1.0,1.0,1.0,0,Residential / Low Amenities
+88,12.999745042488556,77.59521788769665,Maddox Edge,Vasanth Nagar,1.0,10.0,7,7.0,7.0,12.0,2.0,3.0,0,Residential / Low Amenities
+89,12.900434223535056,77.66525306213485,Tower 20,Haralur,2.0,1.0,4,1.0,3.0,1.0,1.0,1.0,0,Residential / Low Amenities
+90,12.92985600000442,77.48535649999233,Bilad Laurel,Kengeri,2.0,2.0,7,1.0,4.0,2.0,0.0,1.0,0,Residential / Low Amenities
+91,13.122866458845253,77.62076937073279,Nitesh Columbus Square Apartments,Dwaraka Nagar,2.0,6.0,3,4.0,6.0,2.0,0.0,1.0,0,Residential / Low Amenities
+92,13.08034163341847,77.64024911634388,Tower F,Bhartiya City,0.0,5.0,4,2.0,2.0,0.0,0.0,2.0,0,Residential / Low Amenities
+93,12.929669250007967,77.48505730000636,Pioneer Lake View,Kengeri,2.0,2.0,4,1.0,5.0,2.0,0.0,1.0,0,Residential / Low Amenities
+94,12.95152231145287,77.57015049938083,Adarsh Manor,Chamarajapete,6.0,47.0,30,6.0,21.0,35.0,7.0,3.0,2,Mixed Residential / Institutional
+95,12.97445154999818,77.64070695000034,Moodera,Indiranagar,37.0,209.0,26,77.0,29.0,61.0,13.0,8.0,1,Amenity-Rich / Commercial Hub
+96,13.107798582779527,77.58000797301654,Blue Bell,1st Cross Road,9.0,21.0,8,10.0,12.0,13.0,0.0,1.0,0,Residential / Low Amenities
+97,12.969669328740475,77.66962698843263,Block A,Lal Bahadur Shastri Nagar,4.0,5.0,9,0.0,4.0,1.0,1.0,4.0,0,Residential / Low Amenities
+98,13.004596271091762,77.62327421098806,East Villa,Lingarajapuram,19.0,26.0,12,12.0,7.0,19.0,3.0,6.0,3,Urban Residential / Leisure Focused
+99,12.92660615002651,77.6646597000097,Treasure,Iblur,8.0,26.0,5,9.0,8.0,15.0,5.0,5.0,3,Urban Residential / Leisure Focused
+100,12.926335443980285,77.66810583424369,Block 3,Sobha Jasmine,8.0,40.0,5,11.0,11.0,18.0,8.0,5.0,3,Urban Residential / Leisure Focused
+101,13.000053149998827,77.62335539999182,Sree Balaji Nilaya,Frazer Town,20.0,31.0,17,14.0,6.0,24.0,4.0,6.0,3,Urban Residential / Leisure Focused
+102,12.958142138890423,77.60401067475043,Landmark,Richmond Town,10.0,17.0,34,11.0,10.0,20.0,3.0,4.0,2,Mixed Residential / Institutional
+103,12.95940810497746,77.5690291991369,Gopalan Pushpanjali,Chamarajapete,7.0,12.0,20,3.0,23.0,17.0,4.0,3.0,2,Mixed Residential / Institutional
+104,13.00454405000195,77.6224577499828,Ashley House,Lingarajapuram,18.0,30.0,13,12.0,8.0,21.0,6.0,6.0,3,Urban Residential / Leisure Focused
+105,12.973384724518466,77.74765661479061,Lavyuk'S Cattleya Orchids,Whitefield,6.0,13.0,16,4.0,3.0,9.0,9.0,1.0,2,Mixed Residential / Institutional
